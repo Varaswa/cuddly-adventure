@@ -10,10 +10,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-sand/80 bg-warmweiss/95 backdrop-blur-md">
       <div className="h-1 w-full bg-anthrazit" aria-hidden />
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="flex min-w-0 shrink items-center"
+          className="flex min-w-0 shrink-0 items-center"
           onClick={() => setOpen(false)}
           aria-label="NWKS – Neuweltkameliden Schweiz, zur Startseite"
         >
@@ -27,7 +27,7 @@ export default function Header() {
               to={link.to}
               end={link.to === '/'}
               className={({ isActive }) =>
-                `rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors ${
+                `rounded-lg px-2 py-1.5 text-[13px] font-medium transition-colors ${
                   isActive
                     ? 'bg-sand text-anthrazit'
                     : 'text-anthrazit/80 hover:bg-sand/60 hover:text-anthrazit'
