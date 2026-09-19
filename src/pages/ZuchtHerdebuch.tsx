@@ -65,7 +65,8 @@ export default function ZuchtHerdebuch() {
           ))}
         </div>
         <p className="mt-4 text-sm text-anthrazit/60">
-          Mitgliedschaft: {mitgliedschaft.beitragEinzel}, {mitgliedschaft.beitragDoppel}, {mitgliedschaft.beitragPassiv}.
+          Mitgliedschaft: {mitgliedschaft.beitragEinzel}, {mitgliedschaft.beitragDoppel},{' '}
+          {mitgliedschaft.beitragPassiv}.
         </p>
       </Section>
 

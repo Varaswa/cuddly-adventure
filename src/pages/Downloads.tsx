@@ -43,7 +43,11 @@ export default function Downloads() {
     <div>
       <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Downloads' }]} />
       <PageHero
-        variant="sand"
+        layout="ribbon"
+        image="heroes/downloads.jpg"
+        imageAlt="Berglandschaft im Abendlicht"
+        objectPosition="center 40%"
+        accent="sand"
         eyebrow="Service"
         title="Dokumente & Formulare"
         lead="Öffentliche Dateien von nwks.ch – nach den Kategorien der Verbands-Downloadseite. PDFs öffnen auf nwks.ch, nicht im Prototyp."

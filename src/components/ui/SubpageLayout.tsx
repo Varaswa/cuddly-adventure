@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { heroForArticle } from '../../content'
 import type { Article } from '../../content/types'
 import { Badge } from './primitives'
 import AlertBanner from './AlertBanner'
@@ -27,7 +28,7 @@ export default function SubpageLayout({ article, actions, children }: Props) {
         ]}
       />
       <PageHero
-        variant={article.heroVariant}
+        {...heroForArticle(article)}
         eyebrow={article.eyebrow}
         title={article.title}
         lead={article.lead}

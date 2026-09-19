@@ -5,8 +5,10 @@
   --color-anthrazit: #2B2F33;
   --color-warmweiss: #FAF8F5;
   --color-salbei: #6B8F71;
+  --color-naturgruen: #4F7A57;
   --color-sand: #E8DFD0;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "IBM Plex Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "IBM Plex Serif", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
   --grid-template-columns-13: repeat(13, minmax(0, 1fr));
 }
 
@@ -15,6 +17,7 @@
   --anthrazit: #2B2F33;
   --warmweiss: #FAF8F5;
   --salbei: #6B8F71;
+  --naturgruen: #4F7A57;
   --sand: #E8DFD0;
 }
 

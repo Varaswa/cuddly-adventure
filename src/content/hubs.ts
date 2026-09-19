@@ -9,6 +9,13 @@ export const haltungHub: HubDefinition = {
   eyebrow: 'Haltung & Gesundheit',
   lead: 'Hier finden Sie Informationen darüber, was Lamas und Alpakas benötigen, um sich wohlzufühlen.',
   heroVariant: 'salbei',
+  hero: {
+    layout: 'split-reverse',
+    image: 'heroes/haltung.jpg',
+    imageAlt: 'Alpaka auf der Weide',
+    objectPosition: 'center 20%',
+    accent: 'salbei',
+  },
   sourceHref: NWKS_HALTUNG,
   sourceLabel: 'Haltung/Pflege auf nwks.ch',
   groups: [
@@ -114,6 +121,13 @@ export const zuchtHub: HubDefinition = {
   lead:
     'Herdebuch, DNA, Faseranalyse und Reglemente – die öffentlichen Unterseiten von nwks.ch/zucht und nwks.ch/herdebuch als zusammenhängende Folgeseiten.',
   heroVariant: 'dark',
+  hero: {
+    layout: 'editorial',
+    image: 'heroes/zucht.jpg',
+    imageAlt: 'Alpaka im Porträt',
+    objectPosition: 'center 40%',
+    accent: 'sand',
+  },
   sourceHref: NWKS_ZUCHT,
   sourceLabel: 'Zuchtseite nwks.ch',
   groups: [
@@ -173,6 +187,13 @@ export const downloadsHub: HubDefinition = {
   lead:
     'Öffentliche Dateien von nwks.ch, nach den Kategorien der Verbands-Downloadseite gegliedert. PDFs öffnen auf nwks.ch.',
   heroVariant: 'sand',
+  hero: {
+    layout: 'ribbon',
+    image: 'heroes/downloads.jpg',
+    imageAlt: 'Berglandschaft im Abendlicht',
+    objectPosition: 'center 40%',
+    accent: 'sand',
+  },
   sourceHref: NWKS_DOWNLOADS,
   sourceLabel: 'Downloads auf nwks.ch',
   groups: [
@@ -192,6 +213,14 @@ export const vereinHub: HubDefinition = {
   lead:
     'Öffentliche Vereinsinfos: Statuten, Vorstand, Kontakte und Beitritt. Der persönliche Login bleibt NWKSoft vorbehalten.',
   heroVariant: 'salbei',
+  hero: {
+    layout: 'spotlight',
+    image: 'heroes/mein-nwks.jpg',
+    imageAlt: 'Grosse Alpakaherde in der Landschaft',
+    objectPosition: 'center 55%',
+    accent: 'naturgruen',
+    size: 'lg',
+  },
   sourceHref: NWKS_VEREIN,
   sourceLabel: 'Verein auf nwks.ch',
   groups: [

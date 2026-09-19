@@ -51,7 +51,7 @@ export const aktuellCards = [
 
 export const haltungThemen = [
   {
-    icon: '🌱',
+    icon: 'weide' as const,
     title: 'Weide & Auslauf',
     topics: 'Fläche, Einzäunung, Boden, Weidemanagement',
     description:
@@ -59,7 +59,7 @@ export const haltungThemen = [
     href: NWKS_HALTUNG,
   },
   {
-    icon: '🏠',
+    icon: 'stall' as const,
     title: 'Stall & Unterstand',
     topics: 'Platzbedarf, Liegeflächen, Witterungsschutz',
     description:
@@ -67,7 +67,7 @@ export const haltungThemen = [
     href: NWKS_HALTUNG,
   },
   {
-    icon: '🌾',
+    icon: 'fuetterung' as const,
     title: 'Fütterung',
     topics: 'Raufutter, Mineralstoffe, Wasser',
     description:
@@ -75,7 +75,7 @@ export const haltungThemen = [
     href: NWKS_HALTUNG,
   },
   {
-    icon: '✂️',
+    icon: 'pflege' as const,
     title: 'Pflege',
     topics: 'Schur, Nägel, Zähne',
     description:
@@ -83,7 +83,7 @@ export const haltungThemen = [
     href: NWKS_HALTUNG,
   },
   {
-    icon: '🩺',
+    icon: 'gesundheit' as const,
     title: 'Gesundheit',
     topics: 'Parasiten, Vorsorge, Erkrankungen',
     description:
@@ -91,7 +91,7 @@ export const haltungThemen = [
     href: NWKS_GESUNDHEIT,
   },
   {
-    icon: '⚖️',
+    icon: 'recht' as const,
     title: 'Recht',
     topics: 'Mindestanforderungen und Sachkundenachweis',
     description:

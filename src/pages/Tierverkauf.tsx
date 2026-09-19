@@ -5,8 +5,9 @@ import PageHero from '../components/ui/PageHero'
 import Breadcrumb from '../components/ui/Breadcrumb'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
-import { Badge, EmptyState, GhostOnDarkCta, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
+import { Badge, EmptyState, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
+import { asset } from '../lib/assets'
 
 type Filters = {
   tierart: string
@@ -46,14 +47,18 @@ export default function Tierverkauf() {
     <div>
       <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Tierverkauf' }]} />
       <PageHero
-        variant="dark"
+        layout="stack"
+        image="heroes/tierverkauf.jpg"
+        imageAlt="Alpakas unterschiedlicher Farbe an der Heuraufe"
+        objectPosition="center 70%"
+        accent="sand"
         eyebrow="Verkaufslisten"
         title="Tiere finden"
         lead="Öffentliche Inserate der NWKS-Verkaufslisten. Der Verband stellt die Plattform bereit – Kaufvertrag und Verantwortung liegen beim jeweiligen Anbieter."
         actions={
           <>
             <PrimaryCta href={TIERVERKAUF_ALPAKAS_PDF}>Verkaufsliste Alpakas (PDF)</PrimaryCta>
-            <GhostOnDarkCta href={TIERVERKAUF_LAMAS_PDF}>Verkaufsliste Lamas (PDF)</GhostOnDarkCta>
+            <SecondaryCta href={TIERVERKAUF_LAMAS_PDF}>Verkaufsliste Lamas (PDF)</SecondaryCta>
           </>
         }
       />
@@ -132,13 +137,16 @@ export default function Tierverkauf() {
         <p className="mt-8 text-sm font-medium text-anthrazit">{list.length} Inserate gefunden</p>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((tier) => (
+          {list.map((tier, index) => (
             <article key={tier.id} className="overflow-hidden rounded-2xl border border-sand bg-warmweiss shadow-sm">
-              <div
-                className="flex h-28 items-end bg-gradient-to-br from-salbei/40 via-sand to-anthrazit/30 p-3"
-                aria-hidden
-              >
-                <span className="rounded bg-warmweiss/90 px-2 py-0.5 text-xs font-semibold text-anthrazit">
+              <div className="relative h-36 overflow-hidden">
+                <img
+                  src={asset('heroes/tierverkauf.jpg')}
+                  alt=""
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: `${20 + (index % 5) * 15}% ${55 + (index % 3) * 10}%` }}
+                />
+                <span className="absolute bottom-3 left-3 rounded bg-warmweiss/95 px-2 py-0.5 text-xs font-semibold text-anthrazit">
                   {tier.tierart}
                 </span>
               </div>

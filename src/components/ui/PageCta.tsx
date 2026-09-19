@@ -25,7 +25,7 @@ export default function PageCta({
         aria-hidden
       />
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <h2 className="max-w-2xl text-2xl font-bold sm:text-3xl">{title}</h2>
+        <h2 className="max-w-2xl font-serif text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h2>
         <div className="mt-3 max-w-2xl text-warmweiss/75">{description}</div>
         <div className="mt-8 flex flex-wrap gap-3">
           <PrimaryCta to={primary.to} href={primary.href}>

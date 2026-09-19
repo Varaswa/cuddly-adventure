@@ -1,3 +1,5 @@
+import { copyFileSync, mkdirSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -5,6 +7,66 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 /** Live GitHub Pages path: https://varaswa.github.io/cuddly-adventure/ */
 const PAGES_BASE = '/cuddly-adventure/'
+
+const SPA_ROUTES = [
+  'haltung-pflege',
+  'haltung-gesundheit',
+  'haltung-gesundheit/haltungsbedingungen',
+  'haltung-gesundheit/neuweltkameliden',
+  'haltung-gesundheit/tierschutzverordnung',
+  'haltung-gesundheit/gesundheit',
+  'haltung-gesundheit/blauzungenkrankheit',
+  'haltung-gesundheit/parasiten',
+  'haltung-gesundheit/tuberkulose',
+  'haltung-gesundheit/vorsorge',
+  'haltung-gesundheit/alpaka',
+  'haltung-gesundheit/lama',
+  'haltung-gesundheit/nutzung',
+  'haltung-gesundheit/tgi',
+  'haltung-gesundheit/neueinsteiger',
+  'zucht-herdebuch',
+  'zucht-herdebuch/nwksoft',
+  'zucht-herdebuch/herdebuch',
+  'zucht-herdebuch/zuchtprogramm',
+  'zucht-herdebuch/lineare-beschreibung',
+  'zucht-herdebuch/dna',
+  'zucht-herdebuch/faser',
+  'zucht-herdebuch/reglemente',
+  'veranstaltungen',
+  'suche',
+  'downloads',
+  'downloads/haltung',
+  'downloads/gesundheit',
+  'downloads/zucht',
+  'downloads/herdebuch',
+  'downloads/dna',
+  'downloads/tgi',
+  'downloads/verein',
+  'downloads/infobriefe',
+  'tierverkauf',
+  'mein-nwks',
+  'mein-nwks/verein',
+  'mein-nwks/mitgliedschaft',
+  'mein-nwks/statuten',
+  'mein-nwks/vorstand',
+  'mein-nwks/kontakte',
+]
+
+function spaPagesFallback() {
+  return {
+    name: 'spa-pages-fallback',
+    closeBundle() {
+      const dist = resolve('dist')
+      const index = resolve(dist, 'index.html')
+      copyFileSync(index, resolve(dist, '404.html'))
+      for (const route of SPA_ROUTES) {
+        const dir = resolve(dist, route)
+        mkdirSync(dir, { recursive: true })
+        copyFileSync(index, resolve(dir, 'index.html'))
+      }
+    },
+  }
+}
 
 function resolveViteBase(command: 'build' | 'serve') {
   if (process.env.VITE_BASE) return process.env.VITE_BASE
@@ -29,18 +91,21 @@ export default defineConfig(({ command }) => {
           'nwks-logo.png',
           'nwks-logo-inverse.png',
           'nwks-mark.png',
+          'nwks-mark-inverse.png',
           'pwa-icon.svg',
           'apple-touch-icon.png',
+          'icon-192.png',
+          'icon-512.png',
         ],
         manifest: {
-          id: PAGES_BASE,
-          name: 'NWKS',
+          id: `${PAGES_BASE}#haltung-hubs-20260919`,
+          name: 'NWKS – Neuweltkameliden Schweiz',
           short_name: 'NWKS',
           description:
             'Neuweltkameliden Schweiz – Haltung, Zucht, Höfe, Veranstaltungen und Verein.',
           lang: 'de',
           dir: 'ltr',
-          theme_color: '#B91C1C',
+          theme_color: '#FAF8F5',
           background_color: '#FAF8F5',
           display: 'standalone',
           orientation: 'any',
@@ -48,19 +113,19 @@ export default defineConfig(({ command }) => {
           scope: PAGES_BASE,
           icons: [
             {
-              src: 'pwa-192x192.png',
+              src: 'icon-192.png',
               sizes: '192x192',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: 'pwa-512x512.png',
+              src: 'icon-512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: 'pwa-512x512-maskable.png',
+              src: 'icon-512-maskable.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
@@ -68,8 +133,11 @@ export default defineConfig(({ command }) => {
           ],
         },
         workbox: {
-          cacheId: 'nwks-hubs-v2',
-          globPatterns: ['**/*.{js,css,html,svg,png,ico,webp,woff2}'],
+          cacheId: 'nwks-haltung-hubs-20260919',
+          skipWaiting: true,
+          clientsClaim: true,
+          cleanupOutdatedCaches: true,
+          globPatterns: ['**/*.{js,css,html,svg,png,ico,webp,jpg,jpeg,woff2}'],
           navigateFallback: 'index.html',
           navigateFallbackDenylist: [/\.[a-zA-Z0-9]+$/],
           runtimeCaching: [
@@ -94,6 +162,7 @@ export default defineConfig(({ command }) => {
           ],
         },
       }),
+      spaPagesFallback(),
     ],
   }
 })

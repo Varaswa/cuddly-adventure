@@ -1,5 +1,14 @@
 export type HeroVariant = 'dark' | 'sand' | 'salbei' | 'warm'
 
+export type HeroSpec = {
+  layout: 'cover' | 'split' | 'split-reverse' | 'frame' | 'ribbon' | 'stack' | 'editorial' | 'spotlight' | 'center'
+  image: string
+  imageAlt: string
+  objectPosition?: string
+  accent?: 'salbei' | 'sand' | 'anthrazit' | 'naturgruen'
+  size?: 'md' | 'lg'
+}
+
 export type SourceLink = {
   label: string
   href: string
@@ -55,6 +64,7 @@ export type HubDefinition = {
   eyebrow?: string
   lead: string
   heroVariant: HeroVariant
+  hero: HeroSpec
   groups: HubGroup[]
   sourceHref?: string
   sourceLabel?: string

@@ -46,7 +46,11 @@ export default function Suche() {
     <div>
       <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Hofsuche' }]} />
       <PageHero
-        variant="sand"
+        layout="split"
+        image="heroes/hofsuche.jpg"
+        imageAlt="Lamas als Herdenschutztiere in den Schweizer Alpen"
+        objectPosition="center 40%"
+        accent="naturgruen"
         eyebrow="Hofsuche"
         title="Hof- oder Fachperson finden"
         lead="Öffentlich sichtbare Betriebe aus der NWKS-Linkliste, den Verkaufslisten und der Service-Seite – mit Region, Website und Filter. Kein vollständiges Mitgliederverzeichnis."

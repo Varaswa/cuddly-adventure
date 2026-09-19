@@ -2,9 +2,26 @@ import { downloadCategories, downloadCategoryBySlug, downloadCategoryCards } fro
 import { gesundheitArticles } from './gesundheit'
 import { haltungArticles } from './haltung'
 import { haltungHub, haltungExtraGroups, zuchtHub, downloadsHub, vereinHub } from './hubs'
-import type { Article, HubDefinition } from './types'
+import type { Article, HeroSpec, HeroVariant, HubDefinition } from './types'
 import { vereinArticles } from './verein'
 import { zuchtArticles } from './zucht'
+
+const variantLayout: Record<HeroVariant, HeroSpec['layout']> = {
+  dark: 'cover',
+  sand: 'split',
+  salbei: 'split-reverse',
+  warm: 'stack',
+}
+
+export function heroForArticle(article: Article): HeroSpec {
+  const hub = hubByPath(article.hubPath)
+  const base = hub?.hero ?? haltungHub.hero
+  return {
+    ...base,
+    layout: variantLayout[article.heroVariant] ?? base.layout,
+    size: 'md',
+  }
+}
 
 export const articles: Article[] = [
   ...haltungArticles,
@@ -37,4 +54,4 @@ export {
   vereinHub,
   zuchtHub,
 }
-export type { Article, HubCard, HubDefinition, AlertSpec, ArticleSection, SourceLink } from './types'
+export type { Article, HubCard, HubDefinition, AlertSpec, ArticleSection, SourceLink, HeroSpec } from './types'

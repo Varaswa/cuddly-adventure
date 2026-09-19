@@ -21,10 +21,14 @@ import { Link } from 'react-router-dom'
 export default function MeinNwks() {
   return (
     <div>
-      <PwaInstallHint />
       <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Mein NWKS' }]} />
       <PageHero
-        variant="salbei"
+        layout="spotlight"
+        image="heroes/mein-nwks.jpg"
+        imageAlt="Grosse Alpakaherde in der Landschaft"
+        objectPosition="center 55%"
+        accent="naturgruen"
+        size="lg"
         eyebrow="Mitgliederbereich"
         title="Mein NWKS"
         lead="Öffentliche Vereinsinfos, Shortcuts und aktuelle Hinweise. Der persönliche Login bleibt NWKSoft vorbehalten – hier gibt es keine erfundenen Mitgliedsdaten."
@@ -35,6 +39,7 @@ export default function MeinNwks() {
           </>
         }
       />
+      <PwaInstallHint />
 
       <Section>
         <DemoNotice>

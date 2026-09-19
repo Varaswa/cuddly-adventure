@@ -41,7 +41,7 @@ export default function SectionHub({
       <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: hub.label }]} />
       {alertPlacement === 'top' && banner}
       <PageHero
-        variant={hub.heroVariant}
+        {...hub.hero}
         eyebrow={hub.eyebrow}
         title={hub.title}
         lead={hub.lead}

@@ -10,7 +10,6 @@ export type NavItem = {
 }
 
 export const navLinks: NavItem[] = [
-  { to: '/', label: 'Startseite' },
   {
     to: '/haltung-gesundheit',
     label: 'Haltung & Gesundheit',
@@ -85,25 +84,25 @@ export const tileNav = [
   {
     title: 'Lamas & Alpakas',
     description: 'Tiere kennenlernen',
-    icon: '🦙',
+    icon: 'lama' as const,
     to: '/haltung-gesundheit/neuweltkameliden',
   },
   {
     title: 'Haltung & Gesundheit',
     description: 'Praxiswissen',
-    icon: '🌿',
+    icon: 'haltung' as const,
     to: '/haltung-gesundheit',
   },
   {
     title: 'Zucht & Herdebuch',
     description: 'Zucht, DNA, Faser, NWKSoft',
-    icon: '🧬',
+    icon: 'zucht' as const,
     to: '/zucht-herdebuch',
   },
   {
     title: 'NWKS & Mitgliedschaft',
     description: 'Verein & Vorteile',
-    icon: '📍',
+    icon: 'verein' as const,
     to: '/mein-nwks',
   },
 ]
