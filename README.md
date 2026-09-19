@@ -123,13 +123,12 @@ npm run preview
 | `/haltung-gesundheit/tierschutzverordnung` | Tierschutzverordnung |
 | `/haltung-gesundheit/gesundheit` | Gesundheit / Medizin |
 | `/haltung-gesundheit/blauzungenkrankheit` | Blauzungenkrankheit |
-| `/zucht-herdebuch` | Hub Zucht & Herdebuch |
-| `/zucht-herdebuch/*` | NWKSoft, Herdebuch, Programm, DNA, Faser, Reglemente |
+| `/herdebuch` | Hub Herdebuch (Alias: `/zucht-herdebuch`) |
+| `/herdebuch/*` | Zuchtprogramm, Registrierung, DNA, Faser, Beschreibung, Reglemente |
 | `/veranstaltungen` | Veranstaltungen |
-| `/suche` | Hof-/Fachpersonensuche |
-| `/downloads` | Downloads-Hub |
+| `/finden` | Höfe und Tiere finden (Aliasse: `/suche`, `/tierverkauf`) |
+| `/downloads` | Downloads-Hub (Footer und Kontextlinks, nicht Hauptnavigation) |
 | `/downloads/:kategorie` | Download-Kategorien (Haltung, Zucht, Verein, …) |
-| `/tierverkauf` | Tierverkauf |
 | `/mein-nwks` | Hub Mein NWKS |
 | `/mein-nwks/*` | Verein, Mitgliedschaft, Statuten, Vorstand, Kontakte |
 

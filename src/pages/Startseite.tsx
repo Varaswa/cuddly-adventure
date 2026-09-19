@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import {
   interesseCards,
-  tileNav,
   aktuellCards,
   veranstaltungen,
   vereinFakten,
@@ -14,7 +13,6 @@ import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import { Badge, GhostOnDarkCta, PrimaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
-import TopicIcon from '../components/ui/TopicIcon'
 
 export default function Startseite() {
   const upcoming = veranstaltungen.filter((event) => !event.past).slice(0, 3)
@@ -34,7 +32,7 @@ export default function Startseite() {
         actions={
           <>
             <PrimaryCta to="/mein-nwks">Mitglied werden</PrimaryCta>
-            <GhostOnDarkCta to="/suche">Hof finden</GhostOnDarkCta>
+            <GhostOnDarkCta to="/finden">Hof finden</GhostOnDarkCta>
           </>
         }
       />
@@ -85,29 +83,10 @@ export default function Startseite() {
       </Section>
 
       <Section tone="sand">
-        <SectionHeading title="Was suchst du?" description="Direkt zu den meistgenutzten Bereichen der App." />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {tileNav.map((tile) => (
-            <Link
-              key={tile.title}
-              to={tile.to}
-              className="flex flex-col rounded-2xl border border-sand bg-warmweiss p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <TopicIcon name={tile.icon} />
-              <h3 className="mt-3 text-lg font-semibold text-anthrazit">{tile.title}</h3>
-              <p className="mt-1 text-sm text-anthrazit/65">{tile.description}</p>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
         <SectionHeading
           title="Aktuell"
-          description="Öffentliche Hinweise von nwks.ch, Infobriefen und dem Tätigkeitsprogramm."
-          action={
-            <TextCta to="/veranstaltungen">Alle Termine →</TextCta>
-          }
+          description="Hinweise aus Infobriefen, Gesundheitsmeldungen und dem Tätigkeitsprogramm."
+          action={<TextCta to="/veranstaltungen">Alle Termine →</TextCta>}
         />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {aktuellCards.map((card) => {
@@ -137,7 +116,7 @@ export default function Startseite() {
         </div>
       </Section>
 
-      <Section tone="sand">
+      <Section>
         <SectionHeading
           eyebrow="Kalender"
           title="Nächste Termine"
@@ -161,7 +140,7 @@ export default function Startseite() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="sand">
         <SectionHeading
           eyebrow="Verband"
           title="Anerkannte Zuchtorganisation seit 1995"

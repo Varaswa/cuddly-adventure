@@ -35,7 +35,7 @@ export default function MeinNwks() {
         actions={
           <>
             <PrimaryCta href={mitgliedschaft.beitrittUrl}>Beitrittserklärung (PDF)</PrimaryCta>
-            <SecondaryCta href={mitgliedschaft.nwksoftUrl}>NWKSoft Login</SecondaryCta>
+            <SecondaryCta href={mitgliedschaft.nwksoftUrl}>Herdebuch-Login</SecondaryCta>
           </>
         }
       />
@@ -57,7 +57,7 @@ export default function MeinNwks() {
         </div>
 
         <div className="mt-12">
-          <SectionHeading title="Shortcuts" description="Schnelleinstiege zu NWKSoft, Formularen und Terminen." />
+          <SectionHeading title="Shortcuts" description="Schnelleinstiege zu Login, Formularen und Terminen." />
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {meinNwksShortcuts.map((s) =>
@@ -135,32 +135,20 @@ export default function MeinNwks() {
             </Card>
           ))}
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <Card>
-            <h2 className="text-base font-bold text-anthrazit">Beitreten</h2>
-            <p className="mt-2 text-sm text-anthrazit/70">
-              Aktivmitglied: Halter, Betreuer oder Eigentümer, stimmberechtigt. Passivmitglied: unterstützt
-              den Verein, ohne Stimmrecht. Gesuch an die Geschäftsstelle; provisorische Aufnahme durch den
-              Vorstand.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <PrimaryCta href={mitgliedschaft.beitrittUrl} className="px-4 py-2.5">
-                Beitrittserklärung (PDF)
-              </PrimaryCta>
-              <TextCta href={mitgliedschaft.preislisteUrl}>Preisliste 2026</TextCta>
-            </div>
-          </Card>
-          <Card>
-            <h2 className="text-base font-bold text-anthrazit">NWKSoft</h2>
-            <p className="mt-2 text-sm text-anthrazit/70">
-              Digitale Herdebuchführung seit 1. April 2025. Basic-Login für Mitglieder kostenlos, Pro Fr. 85.–
-              pro Jahr. Zugangsdaten kommen vom Verein; Probleme an herdebuch@nwks.ch.
-            </p>
-            <SecondaryCta href={mitgliedschaft.nwksoftUrl} className="mt-4 px-4 py-2.5">
-              NWKSoft Login
-            </SecondaryCta>
-          </Card>
-        </div>
+        <Card className="mt-8">
+          <h2 className="text-base font-bold text-anthrazit">Beitreten</h2>
+          <p className="mt-2 text-sm text-anthrazit/70">
+            Aktivmitglied: Halter, Betreuer oder Eigentümer, stimmberechtigt. Passivmitglied: unterstützt den
+            Verein, ohne Stimmrecht. Gesuch an die Geschäftsstelle; provisorische Aufnahme durch den Vorstand.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <PrimaryCta href={mitgliedschaft.beitrittUrl} className="px-4 py-2.5">
+              Beitrittserklärung (PDF)
+            </PrimaryCta>
+            <TextCta href={mitgliedschaft.preislisteUrl}>Preisliste 2026</TextCta>
+            <TextCta href={mitgliedschaft.nwksoftUrl}>Zum digitalen Herdebuch (NWKSoft)</TextCta>
+          </div>
+        </Card>
       </Section>
 
       <Section tone="sand">

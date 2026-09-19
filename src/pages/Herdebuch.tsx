@@ -1,10 +1,10 @@
 import { downloads, mitgliedschaft, zuchtAblauf } from '../data/demo'
-import { NWKSOFT_LOGIN, NWKS_ZUCHT, PREISLISTE_2026_PDF } from '../data/sources'
+import { NWKSOFT_LOGIN, PREISLISTE_2026_PDF } from '../data/sources'
 import { zuchtHub } from '../content'
 import SectionHub from '../components/ui/SectionHub'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
-import { Badge, GhostOnDarkCta, PrimaryCta, TextCta } from '../components/ui/primitives'
+import { Badge, PrimaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
 
 const zuchtDownloads = downloads
@@ -18,24 +18,19 @@ const preise = [
   { label: 'NWKSoft Basic', value: 'kostenlos für Mitglieder' },
 ]
 
-export default function ZuchtHerdebuch() {
+export default function Herdebuch() {
   return (
     <div>
       <SectionHub
         hub={zuchtHub}
-        actions={
-          <>
-            <PrimaryCta href={NWKSOFT_LOGIN}>NWKSoft Login</PrimaryCta>
-            <GhostOnDarkCta href={NWKS_ZUCHT}>Zuchtseite nwks.ch</GhostOnDarkCta>
-          </>
-        }
+        actions={<PrimaryCta href={NWKSOFT_LOGIN}>Zum digitalen Herdebuch (NWKSoft)</PrimaryCta>}
         intro={
           <Section>
             <SectionHeading
               eyebrow="Ablauf"
               title="Züchterische Tätigkeiten"
               description="Objektive Beurteilung mit linearer Beschreibung, Faserprobe, DNA/SNP und Deckmeldungen."
-              action={<TextCta to="/zucht-herdebuch/zuchtprogramm">Programm öffnen →</TextCta>}
+              action={<TextCta to="/herdebuch/zuchtprogramm">Programm öffnen →</TextCta>}
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {zuchtAblauf.map((step, index) => (
@@ -96,7 +91,7 @@ export default function ZuchtHerdebuch() {
       <PageCta
         title="Herdebuch digital führen"
         description="Mitglieder arbeiten in NWKSoft. Wer noch kein Login hat, findet Beitritt und Kontakt unter Mein NWKS."
-        primary={{ label: 'NWKSoft Login', href: NWKSOFT_LOGIN }}
+        primary={{ label: 'Zum digitalen Herdebuch (NWKSoft)', href: NWKSOFT_LOGIN }}
         secondary={{ label: 'Mitglied werden', to: '/mein-nwks/mitgliedschaft' }}
       />
     </div>

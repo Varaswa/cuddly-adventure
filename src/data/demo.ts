@@ -1,4 +1,4 @@
-export { navLinks, interesseCards, tileNav } from './nav'
+export { navLinks, interesseCards } from './nav'
 export { aktuellCards, haltungThemen, gesundheitThemen, wissenArtikel, zuchtThemen, tgiHinweis } from './wissen'
 export { veranstaltungen } from './veranstaltungen'
 export { hofFilterOptions, hoefe, hofsucheHinweis } from './hoefe'

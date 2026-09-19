@@ -111,8 +111,8 @@ export default function HaltungGesundheit() {
       <PageCta
         title="Tiere suchen oder einen Hof besuchen"
         description="Öffentliche Verkaufslisten und Höfe aus der NWKS-Linkliste – ohne erfundene Inserate."
-        primary={{ label: 'Hofsuche', to: '/suche' }}
-        secondary={{ label: 'Tierverkauf', to: '/tierverkauf' }}
+        primary={{ label: 'Höfe finden', to: '/finden#hoefe' }}
+        secondary={{ label: 'Tiere finden', to: '/finden#tiere' }}
       />
     </div>
   )

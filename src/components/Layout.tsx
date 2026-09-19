@@ -7,11 +7,10 @@ import Footer from './Footer'
 const PAGE_TITLES: Record<string, string> = {
   '/': 'NWKS – Neuweltkameliden Schweiz',
   '/haltung-gesundheit': 'Haltung / Pflege · NWKS',
-  '/zucht-herdebuch': 'Zucht & Herdebuch · NWKS',
+  '/herdebuch': 'Herdebuch · NWKS',
   '/veranstaltungen': 'Veranstaltungen · NWKS',
-  '/suche': 'Hofsuche · NWKS',
+  '/finden': 'Finden · NWKS',
   '/downloads': 'Downloads & Formulare · NWKS',
-  '/tierverkauf': 'Tierverkauf · NWKS',
   '/mein-nwks': 'Mein NWKS',
 }
 

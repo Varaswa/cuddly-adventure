@@ -240,9 +240,9 @@ export const gesundheitArticles: Article[] = [
         description: 'Allgemeine Vorsorge.',
       },
       {
-        to: '/zucht-herdebuch/herdebuch',
-        title: 'Herdebuch',
-        description: 'Bestandslisten und NWKSoft.',
+        to: '/herdebuch/registrierung',
+        title: 'Registrierung / Abstammung',
+        description: 'Bestandslisten und Anmeldungen.',
       },
     ],
   },

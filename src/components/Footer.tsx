@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { DATENSCHUTZ_PDF, NWKS_HOME, SEKRETARIAT_EMAIL, HERDEBUCH_EMAIL } from '../data/sources'
+import { DATENSCHUTZ_PDF, NWKSOFT_LOGIN, NWKS_HOME, SEKRETARIAT_EMAIL, HERDEBUCH_EMAIL } from '../data/sources'
 import ExternalLink from './ExternalLink'
 import BrandLockup from './BrandLockup'
 
@@ -22,23 +22,23 @@ export default function Footer() {
           <p className="text-sm font-semibold uppercase tracking-wide text-warmweiss/60">Service</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link to="/suche" className="hover:text-white">
-                Hof-/Fachpersonensuche
-              </Link>
-            </li>
-            <li>
-              <Link to="/downloads" className="hover:text-white">
-                Downloads & Formulare
-              </Link>
-            </li>
-            <li>
-              <Link to="/tierverkauf" className="hover:text-white">
-                Tierverkauf
+              <Link to="/finden" className="hover:text-white">
+                Finden
               </Link>
             </li>
             <li>
               <Link to="/veranstaltungen" className="hover:text-white">
                 Veranstaltungen
+              </Link>
+            </li>
+            <li>
+              <Link to="/downloads" className="hover:text-white">
+                Downloads
+              </Link>
+            </li>
+            <li>
+              <Link to="/mein-nwks" className="hover:text-white">
+                Mein NWKS
               </Link>
             </li>
           </ul>
@@ -47,23 +47,23 @@ export default function Footer() {
           <p className="text-sm font-semibold uppercase tracking-wide text-warmweiss/60">Verband</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link to="/mein-nwks/mitgliedschaft" className="hover:text-white">
-                Mitgliedschaft
+              <Link to="/herdebuch" className="hover:text-white">
+                Herdebuch
               </Link>
             </li>
             <li>
-              <Link to="/zucht-herdebuch" className="hover:text-white">
-                NWKSoft & Herdebuch
-              </Link>
+              <ExternalLink href={NWKSOFT_LOGIN} className="hover:text-white">
+                Digitales Herdebuch (NWKSoft)
+              </ExternalLink>
             </li>
             <li>
               <Link to="/haltung-gesundheit" className="hover:text-white">
-                Haltung / Pflege
+                Haltung & Gesundheit
               </Link>
             </li>
             <li>
-              <Link to="/haltung-gesundheit/tierschutzverordnung" className="hover:text-white">
-                Tierschutzverordnung
+              <Link to="/mein-nwks/mitgliedschaft" className="hover:text-white">
+                Mitgliedschaft
               </Link>
             </li>
             <li>
@@ -87,10 +87,7 @@ export default function Footer() {
               </ExternalLink>
             </li>
             <li>
-              <ExternalLink
-                href={DATENSCHUTZ_PDF}
-                className="hover:text-white"
-              >
+              <ExternalLink href={DATENSCHUTZ_PDF} className="hover:text-white">
                 Datenschutzerklärung
               </ExternalLink>
             </li>
