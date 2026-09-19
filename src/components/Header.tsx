@@ -17,7 +17,7 @@ export default function Header() {
           onClick={() => setOpen(false)}
           aria-label="NWKS – Neuweltkameliden Schweiz, zur Startseite"
         >
-          <BrandLockup />
+          <BrandLockup compact />
         </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Hauptnavigation">

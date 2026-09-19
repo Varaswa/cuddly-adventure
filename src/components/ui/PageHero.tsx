@@ -109,8 +109,8 @@ export default function PageHero({
     const wash = accent === 'salbei' || accent === 'naturgruen' ? 'bg-salbei/10' : 'bg-sand/50'
     return (
       <section className={`border-b border-sand ${wash}`}>
-        <div className="mx-auto grid max-w-7xl overflow-hidden lg:grid-cols-2 lg:items-stretch">
-          <div className={`relative min-h-[16rem] overflow-hidden sm:min-h-[22rem] lg:min-h-[22rem] ${reverse ? 'lg:order-2' : ''}`}>
+        <div className="mx-auto grid max-w-7xl overflow-hidden lg:grid-cols-2 lg:items-stretch lg:min-h-[24rem]">
+          <div className={`relative min-h-[16rem] overflow-hidden sm:min-h-[20rem] lg:min-h-full ${reverse ? 'lg:order-2' : ''}`}>
             <Photo
               src={image}
               alt={imageAlt}
