@@ -12,6 +12,7 @@ import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import { Badge, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
+import TopicIcon from '../components/ui/TopicIcon'
 
 const haltungDownloads = downloads.filter((doc) =>
   doc.tags.some((tag) => ['Haltung', 'Gesundheit', 'TGI'].includes(tag)),
@@ -72,9 +73,7 @@ export default function HaltungGesundheit() {
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {haltungThemen.map((t) => (
             <Card key={t.title} hover>
-              <span className="text-2xl" aria-hidden>
-                {t.icon}
-              </span>
+              <TopicIcon name={t.icon} />
               <h3 className="mt-2 text-lg font-semibold text-anthrazit">{t.title}</h3>
               <p className="mt-1 text-sm font-medium text-anthrazit/55">{t.topics}</p>
               <p className="mt-2 flex-1 text-sm text-anthrazit/75">{t.description}</p>

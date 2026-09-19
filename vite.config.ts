@@ -36,7 +36,7 @@ export default defineConfig(({ command }) => {
           'icon-512.png',
         ],
         manifest: {
-          id: `${PAGES_BASE}#letterhead`,
+          id: `${PAGES_BASE}#official-20260919-merge`,
           name: 'NWKS – Neuweltkameliden Schweiz',
           short_name: 'NWKS',
           description:
@@ -71,7 +71,9 @@ export default defineConfig(({ command }) => {
           ],
         },
         workbox: {
-          cacheId: 'nwks-letterhead-20260919',
+          cacheId: 'nwks-official-20260919-merge',
+          skipWaiting: true,
+          clientsClaim: true,
           cleanupOutdatedCaches: true,
           globPatterns: ['**/*.{js,css,html,svg,png,ico,webp,jpg,jpeg,woff2}'],
           navigateFallback: 'index.html',

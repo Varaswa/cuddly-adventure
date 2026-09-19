@@ -21,11 +21,11 @@ export default function ZuchtHerdebuch() {
   return (
     <div>
       <PageHero
-        layout="cover"
+        layout="editorial"
         image="heroes/zucht.jpg"
         imageAlt="Alpaka im Porträt"
         objectPosition="center 40%"
-        accent="anthrazit"
+        accent="sand"
         eyebrow="Zucht & Herdebuch"
         title="Zucht, Abstammung und NWKSoft"
         lead="Herdebuch, DNA, Faseranalyse und Reglemente – zusammenhängend auffindbar für Züchterinnen und Mitglieder. Quelle: nwks.ch/herdebuch und nwks.ch/zucht."

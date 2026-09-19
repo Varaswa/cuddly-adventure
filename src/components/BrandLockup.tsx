@@ -2,45 +2,33 @@ import { asset } from '../lib/assets'
 
 type Props = {
   inverse?: boolean
-  /** Footer / tight spots: emblem + NWKS, no long wordmark. */
-  compact?: boolean
 }
 
 /**
- * Official NWKS lockup: Swiss cross with two camelid heads (never a red M/N tile).
- * Desktop header uses a short lockup so the nav fits; the full letterhead wordmark
- * is shown when the hamburger is used (no competing nav).
+ * Official NWKS letterhead lockup: Swiss cross + two camelid heads +
+ * wordmark «NeuweltkamelidenSchweiz». Never a red N/M tile.
  */
-export default function BrandLockup({ inverse = false, compact = false }: Props) {
+export default function BrandLockup({ inverse = false }: Props) {
   const mark = asset(inverse ? 'nwks-mark-inverse.png' : 'nwks-mark.png')
   const nameClass = inverse ? 'text-warmweiss' : 'text-anthrazit'
   const subClass = inverse ? 'text-warmweiss/55' : 'text-anthrazit/50'
 
   return (
-    <span className="flex min-w-0 items-center gap-2.5">
+    <span className="flex min-w-0 items-center gap-3">
       <img
         src={mark}
-        alt=""
-        className={`w-auto shrink-0 object-contain object-left ${compact ? 'h-9' : 'h-11 sm:h-12'}`}
-        width={48}
-        height={63}
+        alt="NWKS-Marke: Schweizerkreuz mit zwei Kamelidenköpfen"
+        className="h-12 w-auto shrink-0 object-contain object-left sm:h-14"
+        width={56}
+        height={74}
       />
       <span className={`min-w-0 leading-tight ${nameClass}`}>
-        {compact ? (
-          <span className="block text-sm font-semibold tracking-tight">NWKS</span>
-        ) : (
-          <>
-            <span className="block max-w-[12.5rem] text-sm font-semibold tracking-tight xl:hidden">
-              NeuweltkamelidenSchweiz
-            </span>
-            <span className="hidden xl:block">
-              <span className="block text-sm font-semibold tracking-tight">NWKS</span>
-              <span className={`block text-[0.65rem] uppercase tracking-[0.18em] ${subClass}`}>
-                Schweiz
-              </span>
-            </span>
-          </>
-        )}
+        <span className="block text-[0.95rem] font-semibold tracking-tight sm:text-lg">
+          NeuweltkamelidenSchweiz
+        </span>
+        <span className={`block text-[0.65rem] uppercase tracking-[0.2em] ${subClass}`}>
+          NWKS · anerkannte Zuchtorganisation
+        </span>
       </span>
     </span>
   )

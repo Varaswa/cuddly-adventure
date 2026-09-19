@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
           <Link to="/" aria-label="NWKS – Neuweltkameliden Schweiz, zur Startseite">
-            <BrandLockup inverse compact />
+            <BrandLockup inverse />
           </Link>
           <p className="mt-4 text-sm text-warmweiss/75">
             Neuweltkameliden Schweiz – anerkannte Zuchtorganisation für Lamas und Alpakas.

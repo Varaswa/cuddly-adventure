@@ -7,7 +7,24 @@ import './index.css'
 
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
 
-registerSW({ immediate: true })
+const updateSW = registerSW({
+  immediate: true,
+  onNeedRefresh() {
+    void updateSW(true)
+  },
+  onRegisteredSW(_url, registration) {
+    void registration?.update()
+  },
+})
+
+if ('serviceWorker' in navigator) {
+  let refreshing = false
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshing) return
+    refreshing = true
+    window.location.reload()
+  })
+}
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
