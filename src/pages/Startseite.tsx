@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { interesseCards, tileNav, aktuellCards } from '../data/demo'
 import ExternalLink from '../components/ExternalLink'
+import PwaInstallHint from '../components/PwaInstallHint'
 
 export default function Startseite() {
   return (
     <div>
+      <PwaInstallHint />
       <section className="relative overflow-hidden">
         <div
           className="absolute inset-0 bg-gradient-to-br from-anthrazit via-anthrazit/95 to-salbei"

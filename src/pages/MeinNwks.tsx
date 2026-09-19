@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { fuerDichAktuell, meinNwksShortcuts, mitgliedschaft, nwkLinks } from '../data/demo'
 import ExternalLink from '../components/ExternalLink'
+import PwaInstallHint from '../components/PwaInstallHint'
 
 export default function MeinNwks() {
   return (
     <div>
+      <PwaInstallHint />
       <section className="border-b border-sand bg-gradient-to-br from-salbei/25 via-warmweiss to-sand/50">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wide text-salbei">Mitgliederbereich</p>
