@@ -6,9 +6,12 @@ import {
   vereinFakten,
   mitgliedVorteile,
 } from '../data/demo'
+import { vereinHub } from '../content'
 import PageHero from '../components/ui/PageHero'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
+import Breadcrumb from '../components/ui/Breadcrumb'
+import HubCards from '../components/ui/HubCards'
 import { DemoNotice, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
 import PwaInstallHint from '../components/PwaInstallHint'
@@ -18,6 +21,7 @@ import { Link } from 'react-router-dom'
 export default function MeinNwks() {
   return (
     <div>
+      <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Mein NWKS' }]} />
       <PageHero
         layout="spotlight"
         image="heroes/mein-nwks.jpg"
@@ -45,6 +49,14 @@ export default function MeinNwks() {
         </DemoNotice>
 
         <div className="mt-10">
+          <SectionHeading
+            title="Verein"
+            description="Zweck, Mitgliedschaft, Statuten, Vorstand und Kontakte – öffentlich und ohne Login."
+          />
+          <HubCards cards={vereinHub.groups[0].cards} />
+        </div>
+
+        <div className="mt-12">
           <SectionHeading title="Shortcuts" description="Schnelleinstiege zu NWKSoft, Formularen und Terminen." />
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">

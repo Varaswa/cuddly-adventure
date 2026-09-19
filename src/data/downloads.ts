@@ -1,10 +1,17 @@
 import {
   BEITRITT_PDF,
+  HALTUNGSBEDINGUNGEN_PDF,
   INFOBRIEF_1_2026_PDF,
   INFOBRIEF_2_2026_PDF,
+  KONTROLLHANDBUCH_PDF,
+  MIKROCHIP_PDF,
   PREISLISTE_2026_PDF,
   STATUTEN_PDF,
   TAETIGKEITSPROGRAMM_PDF,
+  TGI_EMPFEHLUNGEN_PDF,
+  TGI_PFLICHTENHEFT_PDF,
+  TSCHV_NWKS_PDF,
+  VORTRAG_TIERSEUCHEN_PDF,
 } from './sources'
 
 export const downloadTags = [
@@ -173,7 +180,7 @@ export const downloads: DownloadDoc[] = [
     meta: 'Merkblatt Haltung',
     tags: ['Haltung'],
     current: true,
-    url: 'https://www.nwks.ch/_files/ugd/b1af85_7fce5724dc894d8fb70da519395280a2.pdf',
+    url: HALTUNGSBEDINGUNGEN_PDF,
   },
   {
     id: 17,
@@ -182,7 +189,7 @@ export const downloads: DownloadDoc[] = [
     meta: 'Recht / Mindestvorgaben',
     tags: ['Haltung'],
     current: true,
-    url: 'https://www.nwks.ch/_files/ugd/b1af85_396f6e35c0144a6a9f47a51d5c892d51.pdf',
+    url: TSCHV_NWKS_PDF,
   },
   {
     id: 18,
@@ -191,7 +198,7 @@ export const downloads: DownloadDoc[] = [
     meta: 'Kontrolle / Haltung',
     tags: ['Haltung'],
     current: true,
-    url: 'https://www.nwks.ch/_files/ugd/b1af85_0b770ceae7c045b0b53d9b7836131891.pdf',
+    url: KONTROLLHANDBUCH_PDF,
   },
   {
     id: 19,
@@ -200,7 +207,7 @@ export const downloads: DownloadDoc[] = [
     meta: 'gültig gemäss TGI-Seite (01.03.2025)',
     tags: ['TGI'],
     current: true,
-    url: 'https://www.nwks.ch/_files/ugd/3817ed_25f5df3ffd034640a74dfa93cda71177.pdf',
+    url: TGI_EMPFEHLUNGEN_PDF,
   },
   {
     id: 20,
@@ -209,7 +216,7 @@ export const downloads: DownloadDoc[] = [
     meta: 'Organisation TGI',
     tags: ['TGI', 'Verein'],
     current: true,
-    url: 'https://www.nwks.ch/_files/ugd/3817ed_131a4d275690472ba976ee08c95c66e7.pdf',
+    url: TGI_PFLICHTENHEFT_PDF,
   },
   {
     id: 21,
@@ -272,7 +279,7 @@ export const downloads: DownloadDoc[] = [
     meta: 'Formular',
     tags: ['Haltung', 'Herdebuch'],
     current: true,
-    url: 'https://www.nwks.ch/_files/ugd/3817ed_621e7f14ec94417d928dc62f370736dd.pdf',
+    url: MIKROCHIP_PDF,
   },
   {
     id: 28,
@@ -290,7 +297,7 @@ export const downloads: DownloadDoc[] = [
     meta: 'Blauzunge, MKS u. a.',
     tags: ['Gesundheit'],
     current: true,
-    url: 'https://www.nwks.ch/_files/ugd/3817ed_43947684942e49e6b9849386d6230cbd.pdf',
+    url: VORTRAG_TIERSEUCHEN_PDF,
   },
   {
     id: 30,

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { NWKS_HOME, SEKRETARIAT_EMAIL, HERDEBUCH_EMAIL } from '../data/sources'
+import { DATENSCHUTZ_PDF, NWKS_HOME, SEKRETARIAT_EMAIL, HERDEBUCH_EMAIL } from '../data/sources'
 import ExternalLink from './ExternalLink'
 import BrandLockup from './BrandLockup'
 
@@ -47,7 +47,7 @@ export default function Footer() {
           <p className="text-sm font-semibold uppercase tracking-wide text-warmweiss/60">Verband</p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link to="/mein-nwks" className="hover:text-white">
+              <Link to="/mein-nwks/mitgliedschaft" className="hover:text-white">
                 Mitgliedschaft
               </Link>
             </li>
@@ -58,12 +58,17 @@ export default function Footer() {
             </li>
             <li>
               <Link to="/haltung-gesundheit" className="hover:text-white">
-                Haltung & Gesundheit
+                Haltung / Pflege
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-white">
-                Startseite
+              <Link to="/haltung-gesundheit/tierschutzverordnung" className="hover:text-white">
+                Tierschutzverordnung
+              </Link>
+            </li>
+            <li>
+              <Link to="/mein-nwks/verein" className="hover:text-white">
+                Verein
               </Link>
             </li>
           </ul>
@@ -83,7 +88,7 @@ export default function Footer() {
             </li>
             <li>
               <ExternalLink
-                href="https://www.nwks.ch/_files/ugd/3817ed_79fe125a4464476898f1a4eb8f8c2130.pdf"
+                href={DATENSCHUTZ_PDF}
                 className="hover:text-white"
               >
                 Datenschutzerklärung

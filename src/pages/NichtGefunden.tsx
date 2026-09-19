@@ -27,7 +27,7 @@ export default function NichtGefunden() {
       <Section>
         <SectionHeading
           title="Diese Seiten sind erreichbar"
-          description="Der Prototyp umfasst die öffentlichen Verbandsangebote – mit einheitlichem NWKS-Rahmen."
+          description="Der Prototyp umfasst die öffentlichen Verbandsangebote – mit einheitlichem NWKS-Rahmen und Folgeseiten."
         />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Card hover>

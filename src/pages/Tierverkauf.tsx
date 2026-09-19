@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { tiere, tierverkaufFilter, tierverkaufHinweis } from '../data/demo'
 import { TIERVERKAUF_ALPAKAS_PDF, TIERVERKAUF_LAMAS_PDF, NWKS_TIERVERKAUF } from '../data/sources'
 import PageHero from '../components/ui/PageHero'
+import Breadcrumb from '../components/ui/Breadcrumb'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import { Badge, EmptyState, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
@@ -44,6 +45,7 @@ export default function Tierverkauf() {
 
   return (
     <div>
+      <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Tierverkauf' }]} />
       <PageHero
         layout="stack"
         image="heroes/tierverkauf.jpg"

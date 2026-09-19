@@ -1,9 +1,12 @@
 import { useMemo, useState } from 'react'
 import { downloads, downloadTags, nwkLinks } from '../data/demo'
 import { NWKS_DOWNLOADS, NWKS_LINKS } from '../data/sources'
+import { downloadCategoryCards } from '../content'
 import PageHero from '../components/ui/PageHero'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
+import Breadcrumb from '../components/ui/Breadcrumb'
+import HubCards from '../components/ui/HubCards'
 import { Badge, EmptyState, FilterChip, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
 
@@ -38,6 +41,7 @@ export default function Downloads() {
 
   return (
     <div>
+      <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Downloads' }]} />
       <PageHero
         layout="ribbon"
         image="heroes/downloads.jpg"
@@ -46,7 +50,7 @@ export default function Downloads() {
         accent="sand"
         eyebrow="Service"
         title="Dokumente & Formulare"
-        lead="Öffentliche Dateien von nwks.ch – PDFs und Formulare werden auf der Verbandswebsite geöffnet, nicht im Prototyp gehostet."
+        lead="Öffentliche Dateien von nwks.ch – nach den Kategorien der Verbands-Downloadseite. PDFs öffnen auf nwks.ch, nicht im Prototyp."
         actions={
           <>
             <PrimaryCta href={NWKS_DOWNLOADS}>Downloads auf nwks.ch</PrimaryCta>
@@ -56,6 +60,14 @@ export default function Downloads() {
       />
 
       <Section>
+        <SectionHeading
+          title="Kategorien"
+          description="Dieselben inhaltlichen Gruppen wie auf nwks.ch/downloads: Tierzucht, Herdebuch, Haltung, Verein, Infobriefe."
+        />
+        <HubCards cards={downloadCategoryCards} />
+      </Section>
+
+      <Section tone="sand">
         <SectionHeading
           title="Aktuell empfohlen"
           description="Preisliste, Statuten, Jahresprogramm und der letzte Infobrief."
@@ -74,7 +86,7 @@ export default function Downloads() {
         </div>
       </Section>
 
-      <Section tone="sand">
+      <Section>
         <SectionHeading title="Gesamtkatalog" description={`${downloads.length} öffentliche Dateien mit Suche und Tags.`} />
         <input
           type="search"
@@ -120,7 +132,7 @@ export default function Downloads() {
         )}
       </Section>
 
-      <Section>
+      <Section tone="sand">
         <SectionHeading
           title="Nützliche Links"
           description="Auswahl aus der öffentlichen NWKS-Linkliste sowie Behörden- und Fachstellen."

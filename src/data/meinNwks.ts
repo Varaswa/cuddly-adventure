@@ -30,7 +30,7 @@ export const fuerDichAktuell: { title: string; detail: string; to: string; href?
   {
     title: 'Blauzungenkrankheit BTV 3',
     detail: 'BGK empfiehlt die Impfung für empfängliche Tierarten. Impfung durch den Bestandestierarzt.',
-    to: '/haltung-gesundheit',
+    to: '/haltung-gesundheit/blauzungenkrankheit',
     href: BGK_BLAUZUNGE,
   },
   {

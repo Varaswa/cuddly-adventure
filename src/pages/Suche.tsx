@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { hoefe, hofFilterOptions, hofsucheHinweis } from '../data/demo'
 import PageHero from '../components/ui/PageHero'
+import Breadcrumb from '../components/ui/Breadcrumb'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import CantonOverview from '../components/ui/CantonOverview'
@@ -43,6 +44,7 @@ export default function Suche() {
 
   return (
     <div>
+      <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Hofsuche' }]} />
       <PageHero
         layout="split"
         image="heroes/hofsuche.jpg"

@@ -21,6 +21,30 @@ export const NWKS_NEUEINSTEIGER = 'https://www.nwks.ch/neueinsteiger'
 export const NWKS_ALPAKA = 'https://www.nwks.ch/alpaka'
 export const NWKS_LAMA = 'https://www.nwks.ch/lama'
 export const NWKS_NUTZUNG = 'https://www.nwks.ch/nutzung'
+export const NWKS_AHL = 'https://www.nwks.ch/ahl'
+
+export const HALTUNGSBEDINGUNGEN_PDF =
+  'https://www.nwks.ch/_files/ugd/b1af85_7fce5724dc894d8fb70da519395280a2.pdf'
+export const TSCHV_NWKS_PDF =
+  'https://www.nwks.ch/_files/ugd/b1af85_396f6e35c0144a6a9f47a51d5c892d51.pdf'
+export const KONTROLLHANDBUCH_PDF =
+  'https://www.nwks.ch/_files/ugd/b1af85_0b770ceae7c045b0b53d9b7836131891.pdf'
+export const MIKROCHIP_PDF =
+  'https://www.nwks.ch/_files/ugd/3817ed_621e7f14ec94417d928dc62f370736dd.pdf'
+export const TGI_EMPFEHLUNGEN_PDF =
+  'https://www.nwks.ch/_files/ugd/3817ed_25f5df3ffd034640a74dfa93cda71177.pdf'
+export const TGI_PFLICHTENHEFT_PDF =
+  'https://www.nwks.ch/_files/ugd/3817ed_131a4d275690472ba976ee08c95c66e7.pdf'
+export const VORTRAG_TIERSEUCHEN_PDF =
+  'https://www.nwks.ch/_files/ugd/3817ed_43947684942e49e6b9849386d6230cbd.pdf'
+export const DATENSCHUTZ_PDF =
+  'https://www.nwks.ch/_files/ugd/3817ed_79fe125a4464476898f1a4eb8f8c2130.pdf'
+export const UNTERSTUETZUNGSREGLEMENT_PDF =
+  'https://www.nwks.ch/_files/ugd/3817ed_720191f3e6ed48fdae99a4f7f1e6fabb.pdf'
+
+export const TSCHV_ART_31 = 'https://www.fedlex.admin.ch/eli/cc/2008/416/de#art_31'
+export const TSCHV_ART_57 = 'https://www.fedlex.admin.ch/eli/cc/2008/416/de#art_57'
+export const TSCHV_ART_58 = 'https://www.fedlex.admin.ch/eli/cc/2008/416/de#art_58'
 
 export const BGK_BLAUZUNGE =
   'https://www.xn--kleinwiederkuer-clb.ch/de/service/blauzungenkrankheit.html'
@@ -52,3 +76,9 @@ export const INFOBRIEF_2_2026_PDF =
 export const SEKRETARIAT_EMAIL = 'sekretariat@nwks.ch'
 export const SEKRETARIAT_TEL = '+41 58 274 70 70'
 export const HERDEBUCH_EMAIL = 'herdebuch@nwks.ch'
+export const HERDEBUCH_TEL = '+41 58 274 70 80'
+export const PRAESIDENT_EMAIL = 'markus.kyburz@nwks.ch'
+export const PRAESIDENT_TEL = '+41 76 566 80 20'
+export const VIZEPRAESIDENT_EMAIL = 'rolf.fedier@nwks.ch'
+export const ZUCHTWART_EMAIL = 'rolf.zaugg@nwks.ch'
+export const TGI_ANSPRECH_EMAIL = 'esther-maurer@bluewin.ch'
