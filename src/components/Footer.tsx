@@ -1,20 +1,17 @@
 import { Link } from 'react-router-dom'
 import { NWKS_HOME, SEKRETARIAT_EMAIL, HERDEBUCH_EMAIL } from '../data/sources'
 import ExternalLink from './ExternalLink'
-
-const logoSrc = `${import.meta.env.BASE_URL}nwks-logo-inverse.png`
+import BrandLockup from './BrandLockup'
 
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-sand bg-anthrazit text-warmweiss">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <img
-            src={logoSrc}
-            alt="NWKS – Neuweltkameliden Schweiz"
-            className="h-10 w-auto max-w-[14rem] object-contain object-left"
-          />
-          <p className="mt-2 text-sm text-warmweiss/75">
+          <Link to="/" aria-label="NWKS – Neuweltkameliden Schweiz, zur Startseite">
+            <BrandLockup inverse />
+          </Link>
+          <p className="mt-4 text-sm text-warmweiss/75">
             Neuweltkameliden Schweiz – anerkannte Zuchtorganisation für Lamas und Alpakas.
           </p>
           <ExternalLink href={NWKS_HOME} className="mt-3 inline-block text-sm text-sand hover:text-white hover:underline">
@@ -97,7 +94,8 @@ export default function Footer() {
       </div>
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-7xl px-4 py-4 text-center text-xs text-warmweiss/50 sm:px-6 lg:px-8">
-          Prototyp mit öffentlichen Angaben von nwks.ch · keine Live-Anbindung an NWKSoft · © 2026 NWKS
+          Prototyp mit öffentlichen Angaben von nwks.ch · keine Live-Anbindung an NWKSoft · Logo gemäss
+          Briefkopf Unterstützungsreglement · Fotos Wikimedia Commons · © 2026 NWKS
         </p>
       </div>
     </footer>

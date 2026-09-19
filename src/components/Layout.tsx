@@ -1,8 +1,26 @@
-import { Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 
+const PAGE_TITLES: Record<string, string> = {
+  '/': 'NWKS – Neuweltkameliden Schweiz',
+  '/haltung-gesundheit': 'Haltung & Gesundheit · NWKS',
+  '/zucht-herdebuch': 'Zucht & Herdebuch · NWKS',
+  '/veranstaltungen': 'Veranstaltungen · NWKS',
+  '/suche': 'Hofsuche · NWKS',
+  '/downloads': 'Downloads & Formulare · NWKS',
+  '/tierverkauf': 'Tierverkauf · NWKS',
+  '/mein-nwks': 'Mein NWKS',
+}
+
 export default function Layout() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    document.title = PAGE_TITLES[pathname] ?? 'Seite nicht gefunden · NWKS'
+  }, [pathname])
+
   return (
     <>
       <a

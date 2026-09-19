@@ -39,7 +39,11 @@ export default function Downloads() {
   return (
     <div>
       <PageHero
-        variant="sand"
+        layout="ribbon"
+        image="heroes/downloads.jpg"
+        imageAlt="Berglandschaft im Abendlicht"
+        objectPosition="center 40%"
+        accent="sand"
         eyebrow="Service"
         title="Dokumente & Formulare"
         lead="Öffentliche Dateien von nwks.ch – PDFs und Formulare werden auf der Verbandswebsite geöffnet, nicht im Prototyp gehostet."

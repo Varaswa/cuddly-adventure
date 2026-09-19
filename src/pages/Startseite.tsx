@@ -14,15 +14,19 @@ import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import { Badge, GhostOnDarkCta, PrimaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
+import TopicIcon from '../components/ui/TopicIcon'
 
 export default function Startseite() {
   const upcoming = veranstaltungen.filter((event) => !event.past).slice(0, 3)
 
   return (
     <div>
-      <PwaInstallHint />
       <PageHero
-        variant="dark"
+        layout="cover"
+        image="heroes/start.jpg"
+        imageAlt="Alpakaherde auf einer Bergweide"
+        objectPosition="center 72%"
+        accent="salbei"
         size="lg"
         eyebrow="Neuweltkameliden Schweiz"
         title="Für gesunde Tiere. Für verantwortungsvolle Haltung. Für eine starke Gemeinschaft."
@@ -34,6 +38,7 @@ export default function Startseite() {
           </>
         }
       />
+      <PwaInstallHint />
 
       <Section>
         <SectionHeading
@@ -88,9 +93,7 @@ export default function Startseite() {
               to={tile.to}
               className="flex flex-col rounded-2xl border border-sand bg-warmweiss p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <span className="text-3xl" aria-hidden>
-                {tile.icon}
-              </span>
+              <TopicIcon name={tile.icon} />
               <h3 className="mt-3 text-lg font-semibold text-anthrazit">{tile.title}</h3>
               <p className="mt-1 text-sm text-anthrazit/65">{tile.description}</p>
             </Link>
