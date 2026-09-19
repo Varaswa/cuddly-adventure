@@ -1,0 +1,70 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [master, main, cursor/gh-pages-demo-6aa6]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+        env:
+          VITE_BASE: /cuddly-adventure/
+
+      - name: Prepare Pages artifacts
+        run: |
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
+
+      - name: Enable GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
+            echo "GitHub Pages already enabled"
+            gh api --method PUT "repos/${GITHUB_REPOSITORY}/pages" \
+              -H "Accept: application/vnd.github+json" \
+              -f build_type=legacy \
+              -f source[branch]=gh-pages \
+              -f source[path]=/ || true
+          else
+            echo "Enabling GitHub Pages from gh-pages branch"
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/pages" \
+              -H "Accept: application/vnd.github+json" \
+              -f source[branch]=gh-pages \
+              -f source[path]=/ || \
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/pages" \
+              -H "Accept: application/vnd.github+json" \
+              -f build_type=workflow || true
+          fi
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
+          enable_jekyll: false
