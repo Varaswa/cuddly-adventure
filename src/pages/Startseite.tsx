@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { interesseCards, tileNav, aktuellCards } from '../data/demo'
+import ExternalLink from '../components/ExternalLink'
+import PwaInstallHint from '../components/PwaInstallHint'
 
 export default function Startseite() {
   return (
     <div>
-      {/* Hero */}
+      <PwaInstallHint />
       <section className="relative overflow-hidden">
         <div
           className="absolute inset-0 bg-gradient-to-br from-anthrazit via-anthrazit/95 to-salbei"
@@ -46,7 +48,6 @@ export default function Startseite() {
         </div>
       </section>
 
-      {/* Was möchtest du wissen? */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <h2 className="text-2xl font-bold text-anthrazit sm:text-3xl">Was möchtest du wissen?</h2>
         <p className="mt-2 max-w-2xl text-anthrazit/70">
@@ -91,7 +92,6 @@ export default function Startseite() {
         </div>
       </section>
 
-      {/* Four tiles */}
       <section className="bg-sand/40">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
           <h2 className="text-2xl font-bold text-anthrazit sm:text-3xl">Was suchst du?</h2>
@@ -113,7 +113,6 @@ export default function Startseite() {
         </div>
       </section>
 
-      {/* Aktuell */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <h2 className="text-2xl font-bold text-anthrazit sm:text-3xl">Aktuell</h2>
@@ -122,23 +121,32 @@ export default function Startseite() {
           </Link>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {aktuellCards.map((card) => (
-            <Link
-              key={card.id}
-              to={card.to}
-              className="flex flex-col rounded-2xl border border-sand bg-warmweiss p-5 shadow-sm transition hover:shadow-md"
-            >
-              <div className="flex items-center justify-between gap-2">
-                <span className="rounded-full bg-salbei/15 px-2.5 py-0.5 text-xs font-semibold text-salbei">
-                  {card.category}
-                </span>
-                <time className="text-xs text-anthrazit/50">{card.date}</time>
-              </div>
-              <h3 className="mt-3 text-base font-semibold text-anthrazit">{card.title}</h3>
-              <p className="mt-2 flex-1 text-sm text-anthrazit/70">{card.excerpt}</p>
-              <span className="mt-4 text-sm font-semibold text-nwks-rot">Details →</span>
-            </Link>
-          ))}
+          {aktuellCards.map((card) => {
+            const inner = (
+              <>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="rounded-full bg-salbei/15 px-2.5 py-0.5 text-xs font-semibold text-salbei">
+                    {card.category}
+                  </span>
+                  <time className="text-xs text-anthrazit/50">{card.date}</time>
+                </div>
+                <h3 className="mt-3 text-base font-semibold text-anthrazit">{card.title}</h3>
+                <p className="mt-2 flex-1 text-sm text-anthrazit/70">{card.excerpt}</p>
+                <span className="mt-4 text-sm font-semibold text-nwks-rot">Details →</span>
+              </>
+            )
+            const className =
+              'flex flex-col rounded-2xl border border-sand bg-warmweiss p-5 shadow-sm transition hover:shadow-md'
+            return card.href ? (
+              <ExternalLink key={card.id} href={card.href} className={className}>
+                {inner}
+              </ExternalLink>
+            ) : (
+              <Link key={card.id} to={card.to} className={className}>
+                {inner}
+              </Link>
+            )
+          })}
         </div>
       </section>
     </div>
