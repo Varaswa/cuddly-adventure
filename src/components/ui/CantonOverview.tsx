@@ -52,7 +52,7 @@ export default function CantonOverview({ counts, selected, onSelect }: Props) {
           Statt einer interaktiven Karte: Kantone mit Höfen oder Fachpersonen aus der öffentlichen
           Linkliste. Antippen filtert die Trefferliste.
         </p>
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="mt-5 grid grid-cols-6 gap-2 sm:grid-cols-9 lg:grid-cols-13">
           {SWISS_CANTONS.map((kanton) => {
             const n = counts[kanton] ?? 0
             const active = selected === kanton
@@ -63,7 +63,7 @@ export default function CantonOverview({ counts, selected, onSelect }: Props) {
                 type="button"
                 disabled={!has}
                 onClick={() => onSelect(active ? null : kanton)}
-                className={`min-w-11 rounded-lg px-2 py-2 text-center text-xs font-semibold transition ${
+                className={`rounded-lg px-1 py-2 text-center text-xs font-semibold transition ${
                   active
                     ? 'bg-nwks-rot text-white shadow-sm'
                     : has
