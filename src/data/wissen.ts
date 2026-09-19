@@ -25,8 +25,7 @@ export const aktuellCards = [
     excerpt:
       'BTV 3 ist in der Schweiz angekommen. Der BGK empfiehlt die Impfung für alle empfänglichen Tierarten; die Impfung erfolgt durch die Bestandestierärzte.',
     date: 'aktuell',
-    to: '/haltung-gesundheit',
-    href: NWKS_BLAUZUNGE,
+    to: '/haltung-gesundheit/blauzungenkrankheit',
   },
   {
     id: 'herbstbeschreibungen',

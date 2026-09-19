@@ -47,13 +47,21 @@ npm run preview
 | Pfad | Seite |
 |------|--------|
 | `/` | Startseite |
-| `/haltung-gesundheit` | Haltung & Gesundheit |
-| `/zucht-herdebuch` | Zucht & Herdebuch |
+| `/haltung-gesundheit` | Hub Haltung / Pflege (Alias: `/haltung-pflege`) |
+| `/haltung-gesundheit/haltungsbedingungen` | Haltungsbedingungen |
+| `/haltung-gesundheit/neuweltkameliden` | Neuweltkameliden |
+| `/haltung-gesundheit/tierschutzverordnung` | Tierschutzverordnung |
+| `/haltung-gesundheit/gesundheit` | Gesundheit / Medizin |
+| `/haltung-gesundheit/blauzungenkrankheit` | Blauzungenkrankheit |
+| `/zucht-herdebuch` | Hub Zucht & Herdebuch |
+| `/zucht-herdebuch/*` | NWKSoft, Herdebuch, Programm, DNA, Faser, Reglemente |
 | `/veranstaltungen` | Veranstaltungen |
 | `/suche` | Hof-/Fachpersonensuche |
-| `/downloads` | Downloads |
+| `/downloads` | Downloads-Hub |
+| `/downloads/:kategorie` | Download-Kategorien (Haltung, Zucht, Verein, …) |
 | `/tierverkauf` | Tierverkauf |
-| `/mein-nwks` | Mein NWKS |
+| `/mein-nwks` | Hub Mein NWKS |
+| `/mein-nwks/*` | Verein, Mitgliedschaft, Statuten, Vorstand, Kontakte |
 
 ## Design-Tokens
 

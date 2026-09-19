@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { veranstaltungen, tgiHinweis } from '../data/demo'
 import { NWKS_VERANSTALTUNGEN, SEKRETARIAT_EMAIL, TAETIGKEITSPROGRAMM_PDF } from '../data/sources'
 import PageHero from '../components/ui/PageHero'
+import Breadcrumb from '../components/ui/Breadcrumb'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import { Badge, EmptyState, FilterChip, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
@@ -22,6 +23,7 @@ export default function Veranstaltungen() {
 
   return (
     <div>
+      <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: 'Veranstaltungen' }]} />
       <PageHero
         variant="sand"
         eyebrow="Aktivitäten & TGI"
@@ -79,9 +81,10 @@ export default function Veranstaltungen() {
           <Card variant="salbei">
             <h2 className="text-lg font-semibold text-anthrazit">{tgiHinweis.title}</h2>
             <p className="mt-2 text-sm text-anthrazit/70">{tgiHinweis.description}</p>
-            <TextCta href={tgiHinweis.href} className="mt-4">
-              TGI-Seite des NWKS →
-            </TextCta>
+            <div className="mt-4 flex flex-wrap gap-4">
+              <TextCta to="/haltung-gesundheit/tgi">TGI im neuen Design →</TextCta>
+              <TextCta href={tgiHinweis.href}>TGI-Seite des NWKS →</TextCta>
+            </div>
           </Card>
           <Card>
             <h2 className="text-lg font-semibold text-anthrazit">Eigenen Anlass melden</h2>

@@ -19,8 +19,8 @@ export default function NichtGefunden() {
       />
       <Section>
         <p className="text-sm text-anthrazit/70">
-          Verfügbar sind Startseite, Haltung & Gesundheit, Zucht & Herdebuch, Veranstaltungen, Hofsuche,
-          Downloads, Tierverkauf und Mein NWKS.
+          Verfügbar sind die Hauptbereiche und ihre Folgeseiten: Haltung / Pflege, Zucht & Herdebuch,
+          Veranstaltungen, Hofsuche, Downloads, Tierverkauf und Mein NWKS.
         </p>
       </Section>
     </div>
