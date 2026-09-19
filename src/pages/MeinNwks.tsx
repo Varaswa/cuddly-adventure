@@ -18,7 +18,6 @@ import { Link } from 'react-router-dom'
 export default function MeinNwks() {
   return (
     <div>
-      <PwaInstallHint />
       <PageHero
         layout="spotlight"
         image="heroes/mein-nwks.jpg"
@@ -36,6 +35,7 @@ export default function MeinNwks() {
           </>
         }
       />
+      <PwaInstallHint />
 
       <Section>
         <DemoNotice>

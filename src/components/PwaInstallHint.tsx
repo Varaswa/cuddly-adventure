@@ -43,44 +43,28 @@ export default function PwaInstallHint() {
   if (hidden) return null
 
   return (
-    <aside
-      className="border-b border-sand bg-sand/50"
-      aria-label="App installieren"
-    >
-      <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:px-6 lg:px-8">
-        <div>
-          <p className="text-sm font-semibold text-anthrazit">NWKS als App installieren</p>
-          <p className="mt-1 text-sm text-anthrazit/70">
-            Diese Website ist eine Progressive Web App. Nach der Installation startet sie ohne
-            Browserleiste und der App-Rahmen bleibt offline verfügbar.
-          </p>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-anthrazit/70">
-            <li>
-              <strong className="font-semibold text-anthrazit">Android (Chrome):</strong> Menü ⋮ →
-              «App installieren» oder «Zum Startbildschirm hinzufügen».
-            </li>
-            <li>
-              <strong className="font-semibold text-anthrazit">iPhone/iPad (Safari):</strong> Teilen-Symbol
-              → «Zum Home-Bildschirm».
-            </li>
-          </ul>
-        </div>
+    <aside className="border-b border-sand bg-sand/45" aria-label="App installieren">
+      <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <p className="text-sm text-anthrazit/80">
+          <span className="font-semibold text-anthrazit">Als App installieren.</span>{' '}
+          Android: Menü → App installieren · iPhone: Teilen → Zum Home-Bildschirm.
+        </p>
         <div className="flex shrink-0 flex-wrap gap-2">
           {installEvent && (
             <button
               type="button"
               onClick={() => void install()}
-              className="rounded-lg bg-nwks-rot px-3 py-2 text-sm font-semibold text-white hover:bg-nwks-rot/90"
+              className="rounded-lg bg-nwks-rot px-3 py-1.5 text-sm font-semibold text-white hover:bg-nwks-rot/90"
             >
-              Jetzt installieren
+              Installieren
             </button>
           )}
           <button
             type="button"
             onClick={dismiss}
-            className="rounded-lg border border-anthrazit/15 px-3 py-2 text-sm font-medium text-anthrazit hover:bg-warmweiss"
+            className="rounded-lg border border-anthrazit/15 px-3 py-1.5 text-sm font-medium text-anthrazit hover:bg-warmweiss"
           >
-            Hinweis schliessen
+            Schliessen
           </button>
         </div>
       </div>

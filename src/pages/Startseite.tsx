@@ -21,7 +21,6 @@ export default function Startseite() {
 
   return (
     <div>
-      <PwaInstallHint />
       <PageHero
         layout="cover"
         image="heroes/start.jpg"
@@ -39,6 +38,7 @@ export default function Startseite() {
           </>
         }
       />
+      <PwaInstallHint />
 
       <Section>
         <SectionHeading
