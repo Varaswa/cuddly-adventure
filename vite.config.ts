@@ -6,8 +6,8 @@ function resolveBase(command: 'build' | 'serve') {
   if (process.env.VITE_BASE) return process.env.VITE_BASE
   if (process.env.VERCEL) return '/'
   if (command === 'serve') return '/'
-  // GitHub Pages project site: https://varaswa.github.io/cuddly-adventure/
-  return '/cuddly-adventure/'
+  // Relative assets work on GitHub Pages, jsDelivr, and other static hosts.
+  return './'
 }
 
 export default defineConfig(({ command }) => ({
