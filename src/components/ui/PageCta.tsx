@@ -12,7 +12,7 @@ export default function PageCta({
   title = 'Mitglied der Gemeinschaft werden',
   description = 'Zugang zu NWKSoft, Infobriefen, Formularen und dem Netzwerk der anerkannten Zuchtorganisation.',
   primary = { label: 'Mitglied werden', to: '/mein-nwks' },
-  secondary = { label: 'Hof finden', to: '/suche' },
+  secondary = { label: 'Hof finden', to: '/finden' },
 }: Props) {
   return (
     <section className="relative overflow-hidden bg-anthrazit text-warmweiss">

@@ -20,7 +20,7 @@ export default function NichtGefunden() {
         actions={
           <>
             <PrimaryCta to="/">Zur Startseite</PrimaryCta>
-            <GhostOnDarkCta to="/suche">Hofsuche</GhostOnDarkCta>
+            <GhostOnDarkCta to="/finden">Finden</GhostOnDarkCta>
           </>
         }
       />
@@ -29,14 +29,7 @@ export default function NichtGefunden() {
           title="Diese Seiten sind erreichbar"
           description="Der Prototyp umfasst die öffentlichen Verbandsangebote – mit einheitlichem NWKS-Rahmen und Folgeseiten."
         />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Card hover>
-            <h2 className="text-lg font-semibold text-anthrazit">Startseite</h2>
-            <p className="mt-2 text-sm text-anthrazit/70">Überblick zu Haltung, Zucht, Terminen und Mitgliedschaft.</p>
-            <Link to="/" className="mt-4 text-sm font-semibold text-nwks-rot hover:underline">
-              Zur Startseite →
-            </Link>
-          </Card>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {navLinks.map((link) => (
             <Card key={link.to} hover>
               <h2 className="text-lg font-semibold text-anthrazit">{link.label}</h2>

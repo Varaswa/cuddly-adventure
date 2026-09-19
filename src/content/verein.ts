@@ -113,7 +113,7 @@ export const vereinArticles: Article[] = [
     ],
     sources: [
       { label: 'NWKS Verein / Statuten', href: NWKS_VEREIN },
-      { label: 'NWKSoft Login', href: NWKSOFT_LOGIN },
+      { label: 'Zum digitalen Herdebuch (NWKSoft)', href: NWKSOFT_LOGIN },
     ],
     downloads: [
       { label: 'Beitrittserklärung (PDF)', href: BEITRITT_PDF },
@@ -126,9 +126,9 @@ export const vereinArticles: Article[] = [
         description: 'Zweck, Aufgaben, Organe.',
       },
       {
-        to: '/zucht-herdebuch/nwksoft',
-        title: 'NWKSoft',
-        description: 'Herdebuch digital führen.',
+        to: '/herdebuch',
+        title: 'Herdebuch',
+        description: 'Registrierung, Abstammung und digitales Login.',
       },
     ],
   },

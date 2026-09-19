@@ -257,13 +257,13 @@ export const haltungArticles: Article[] = [
         description: 'Flächen, Fütterung und Pflege vor dem Kauf lesen.',
       },
       {
-        to: '/suche',
-        title: 'Hofsuche',
+        to: '/finden#hoefe',
+        title: 'Höfe finden',
         description: 'Öffentlich gelistete Betriebe finden.',
       },
       {
-        to: '/tierverkauf',
-        title: 'Tierverkauf',
+        to: '/finden#tiere',
+        title: 'Tiere finden',
         description: 'Öffentliche NWKS-Verkaufslisten.',
       },
     ],

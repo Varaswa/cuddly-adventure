@@ -8,56 +8,13 @@ import type { Article } from './types'
 
 export const zuchtArticles: Article[] = [
   {
-    path: '/zucht-herdebuch/nwksoft',
-    hubPath: '/zucht-herdebuch',
-    hubLabel: 'Zucht & Herdebuch',
-    title: 'NWKSoft',
-    eyebrow: 'Digitales Herdebuch',
-    lead:
-      'Seit 1. April 2025 führen Mitglieder das Herdebuch selbst über nwksoft.ch. Basic-Login trägt der Verein, NWKSoft Pro kostet Fr. 85.– pro Jahr.',
-    heroVariant: 'dark',
-    sections: [
-      {
-        title: 'Was Mitglieder selbst erledigen',
-        paragraphs: [
-          'Über NWKSoft können Mitglieder Tiere an- und ummelden, züchterische Tätigkeiten anmelden und einen Teil des Herdemanagements führen (Deckplanung, Medikamente, Begleitdokumente). Ausweise und Tierlisten werden selbst ausgedruckt.',
-          'Zugangsdaten kommen vom Verein. Support: herdebuch@nwks.ch. Formulare bleiben online, sind aber nur noch für Nichtmitglieder gedacht.',
-        ],
-      },
-      {
-        title: 'Preise (Preisliste 2026)',
-        bullets: [
-          'NWKSoft Basic: kostenlos für Mitglieder (vom Verein getragen).',
-          'NWKSoft Pro: Fr. 85.– / Jahr.',
-        ],
-      },
-    ],
-    sources: [
-      { label: 'NWKSoft Login', href: NWKSOFT_LOGIN },
-      { label: 'NWKS Herdebuch', href: NWKS_HERDEBUCH },
-    ],
-    downloads: [{ label: 'Preisliste 2026', href: PREISLISTE_2026_PDF }],
-    related: [
-      {
-        to: '/zucht-herdebuch/herdebuch',
-        title: 'Herdebuch',
-        description: 'An- und Ummeldung, Kostenregeln.',
-      },
-      {
-        to: '/mein-nwks/mitgliedschaft',
-        title: 'Mitgliedschaft',
-        description: 'Beitritt, damit das Login möglich wird.',
-      },
-    ],
-  },
-  {
-    path: '/zucht-herdebuch/herdebuch',
-    hubPath: '/zucht-herdebuch',
-    hubLabel: 'Zucht & Herdebuch',
-    title: 'Herdebuch',
+    path: '/herdebuch/registrierung',
+    hubPath: '/herdebuch',
+    hubLabel: 'Herdebuch',
+    title: 'Registrierung & Abstammung',
     eyebrow: 'Nachweis',
     lead:
-      'Mitglieder arbeiten in NWKSoft. Formulare sind kostenpflichtig und für Nichtmitglieder gedacht. Quelle: nwks.ch/herdebuch.',
+      'Mitglieder arbeiten im digitalen Herdebuch (NWKSoft). Formulare sind kostenpflichtig und für Nichtmitglieder gedacht. Quelle: nwks.ch/herdebuch.',
     heroVariant: 'sand',
     sections: [
       {
@@ -73,14 +30,14 @@ export const zuchtArticles: Article[] = [
     ],
     sources: [
       { label: 'NWKS Herdebuch', href: NWKS_HERDEBUCH },
-      { label: 'NWKSoft', href: NWKSOFT_LOGIN },
+      { label: 'Zum digitalen Herdebuch (NWKSoft)', href: NWKSOFT_LOGIN },
     ],
     downloads: [{ label: 'Preisliste 2026', href: PREISLISTE_2026_PDF }],
     related: [
       {
-        to: '/zucht-herdebuch/nwksoft',
-        title: 'NWKSoft',
-        description: 'Login und Funktionsumfang.',
+        to: '/herdebuch/zuchtprogramm',
+        title: 'Zuchtprogramm',
+        description: 'Lineare Beschreibung, DNA und Faser.',
       },
       {
         to: '/downloads/herdebuch',
@@ -90,9 +47,9 @@ export const zuchtArticles: Article[] = [
     ],
   },
   {
-    path: '/zucht-herdebuch/zuchtprogramm',
-    hubPath: '/zucht-herdebuch',
-    hubLabel: 'Zucht & Herdebuch',
+    path: '/herdebuch/zuchtprogramm',
+    hubPath: '/herdebuch',
+    hubLabel: 'Herdebuch',
     title: 'Züchterische Tätigkeiten',
     eyebrow: 'Programm',
     lead:
@@ -116,26 +73,26 @@ export const zuchtArticles: Article[] = [
     sources: [{ label: 'NWKS Zucht', href: NWKS_ZUCHT }],
     related: [
       {
-        to: '/zucht-herdebuch/lineare-beschreibung',
+        to: '/herdebuch/lineare-beschreibung',
         title: 'Lineare Beschreibung',
         description: 'Exterieurbeurteilung durch NWKS-Beschreiber.',
       },
       {
-        to: '/zucht-herdebuch/dna',
+        to: '/herdebuch/dna',
         title: 'DNA / SNP',
         description: 'Ab 2026 nur noch SNP-Analysen.',
       },
       {
-        to: '/zucht-herdebuch/faser',
+        to: '/herdebuch/faser',
         title: 'Faseranalyse',
         description: 'Leistungsbewertung und Diagramme lesen.',
       },
     ],
   },
   {
-    path: '/zucht-herdebuch/lineare-beschreibung',
-    hubPath: '/zucht-herdebuch',
-    hubLabel: 'Zucht & Herdebuch',
+    path: '/herdebuch/lineare-beschreibung',
+    hubPath: '/herdebuch',
+    hubLabel: 'Herdebuch',
     title: 'Lineare Beschreibung',
     eyebrow: 'Exterieur',
     lead:
@@ -158,7 +115,7 @@ export const zuchtArticles: Article[] = [
     sources: [{ label: 'NWKS Zucht', href: NWKS_ZUCHT }],
     related: [
       {
-        to: '/zucht-herdebuch/reglemente',
+        to: '/herdebuch/reglemente',
         title: 'Reglemente',
         description: 'Alle öffentlichen Zuchtdokumente.',
       },
@@ -170,9 +127,9 @@ export const zuchtArticles: Article[] = [
     ],
   },
   {
-    path: '/zucht-herdebuch/dna',
-    hubPath: '/zucht-herdebuch',
-    hubLabel: 'Zucht & Herdebuch',
+    path: '/herdebuch/dna',
+    hubPath: '/herdebuch',
+    hubLabel: 'Herdebuch',
     title: 'DNA / Genetik',
     eyebrow: 'SNP',
     lead:
@@ -191,7 +148,7 @@ export const zuchtArticles: Article[] = [
     downloads: [{ label: 'Preisliste 2026', href: PREISLISTE_2026_PDF }],
     related: [
       {
-        to: '/zucht-herdebuch/zuchtprogramm',
+        to: '/herdebuch/zuchtprogramm',
         title: 'Züchterische Tätigkeiten',
         description: 'Einordnung im Gesamtprogramm.',
       },
@@ -203,9 +160,9 @@ export const zuchtArticles: Article[] = [
     ],
   },
   {
-    path: '/zucht-herdebuch/faser',
-    hubPath: '/zucht-herdebuch',
-    hubLabel: 'Zucht & Herdebuch',
+    path: '/herdebuch/faser',
+    hubPath: '/herdebuch',
+    hubLabel: 'Herdebuch',
     title: 'Faseranalyse',
     eyebrow: 'Leistung',
     lead:
@@ -227,16 +184,16 @@ export const zuchtArticles: Article[] = [
         description: 'Vliestypen Huacaya und Suri.',
       },
       {
-        to: '/zucht-herdebuch/reglemente',
+        to: '/herdebuch/reglemente',
         title: 'Reglemente',
         description: 'Faser- und Leistungsreglemente.',
       },
     ],
   },
   {
-    path: '/zucht-herdebuch/reglemente',
-    hubPath: '/zucht-herdebuch',
-    hubLabel: 'Zucht & Herdebuch',
+    path: '/herdebuch/reglemente',
+    hubPath: '/herdebuch',
+    hubLabel: 'Herdebuch',
     title: 'Reglemente',
     eyebrow: 'Dokumente',
     lead:
@@ -258,7 +215,7 @@ export const zuchtArticles: Article[] = [
         description: 'Alle öffentlichen Zuchtdateien.',
       },
       {
-        to: '/zucht-herdebuch/zuchtprogramm',
+        to: '/herdebuch/zuchtprogramm',
         title: 'Züchterische Tätigkeiten',
         description: 'Wie die Reglemente im Alltag greifen.',
       },

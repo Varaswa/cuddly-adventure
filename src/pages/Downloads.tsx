@@ -161,7 +161,7 @@ export default function Downloads() {
         title="Formulare allein reichen nicht?"
         description="Mitglieder arbeiten in NWKSoft. Beitritt, Statuten und Kontakt liegen unter Mein NWKS."
         primary={{ label: 'Mein NWKS', to: '/mein-nwks' }}
-        secondary={{ label: 'Zucht & Herdebuch', to: '/zucht-herdebuch' }}
+        secondary={{ label: 'Herdebuch', to: '/herdebuch' }}
       />
     </div>
   )

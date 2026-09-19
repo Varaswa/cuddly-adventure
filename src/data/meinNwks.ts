@@ -12,10 +12,10 @@ import {
 } from './sources'
 
 export const meinNwksShortcuts: { label: string; to: string; href?: string }[] = [
-  { label: 'Meine Tiere', to: '/zucht-herdebuch', href: NWKSOFT_LOGIN },
-  { label: 'NWKSoft', to: '/zucht-herdebuch', href: NWKSOFT_LOGIN },
+  { label: 'Herdebuch-Login', to: '/herdebuch', href: NWKSOFT_LOGIN },
   { label: 'Formulare', to: '/downloads' },
   { label: 'Veranstaltungen', to: '/veranstaltungen' },
+  { label: 'Finden', to: '/finden' },
   { label: 'Weiterbildung', to: '/veranstaltungen' },
   { label: 'Infobrief', to: '/downloads', href: INFOBRIEF_2_2026_PDF },
 ]
@@ -23,7 +23,7 @@ export const meinNwksShortcuts: { label: string; to: string; href?: string }[] =
 export const fuerDichAktuell: { title: string; detail: string; to: string; href?: string }[] = [
   {
     title: 'Herbstbeschreibungen',
-    detail: 'Lineare Beschreibungen im Oktober 2026 gemäss Tätigkeitsprogramm. Anmeldung über NWKSoft.',
+    detail: 'Lineare Beschreibungen im Oktober 2026 gemäss Tätigkeitsprogramm. Anmeldung über das digitale Herdebuch.',
     to: '/veranstaltungen',
     href: TAETIGKEITSPROGRAMM_PDF,
   },
@@ -34,9 +34,9 @@ export const fuerDichAktuell: { title: string; detail: string; to: string; href?
     href: BGK_BLAUZUNGE,
   },
   {
-    title: 'NWKSoft Herdebuch',
-    detail: 'Seit 1. April 2025 selbst an- und ummelden. Basic kostenlos für Mitglieder, Pro Fr. 85.–/Jahr.',
-    to: '/zucht-herdebuch',
+    title: 'Digitales Herdebuch',
+    detail: 'Mitglieder melden Tiere an und um – Login über NWKSoft.',
+    to: '/herdebuch',
     href: NWKSOFT_LOGIN,
   },
 ]

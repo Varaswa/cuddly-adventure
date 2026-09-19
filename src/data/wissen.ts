@@ -12,7 +12,6 @@ import {
   NWKS_NUTZUNG,
   NWKS_TGI,
   NWKS_ZUCHT,
-  NWKSOFT_LOGIN,
   TAETIGKEITSPROGRAMM_PDF,
   TSCHV_FEDLEX,
 } from './sources'
@@ -175,13 +174,6 @@ export type ZuchtThema = {
 }
 
 export const zuchtThemen: ZuchtThema[] = [
-  {
-    title: 'NWKSoft',
-    description:
-      'Seit 1. April 2025 führen Mitglieder das Herdebuch selbst über NWKSoft. Basic-Login ist für Mitglieder kostenlos (vom Verein getragen), NWKSoft Pro kostet Fr. 85.–/Jahr. Login: nwksoft.ch.',
-    cta: 'NWKSoft Login',
-    href: NWKSOFT_LOGIN,
-  },
   {
     title: 'Herdebuch',
     description:

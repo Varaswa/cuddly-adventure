@@ -114,12 +114,12 @@ export const haltungExtraGroups = [
 ]
 
 export const zuchtHub: HubDefinition = {
-  path: '/zucht-herdebuch',
-  label: 'Zucht & Herdebuch',
-  title: 'Zucht, Abstammung und NWKSoft',
-  eyebrow: 'Zucht & Herdebuch',
+  path: '/herdebuch',
+  label: 'Herdebuch',
+  title: 'Herdebuch',
+  eyebrow: 'Zucht & Nachweis',
   lead:
-    'Herdebuch, DNA, Faseranalyse und Reglemente – die öffentlichen Unterseiten von nwks.ch/zucht und nwks.ch/herdebuch als zusammenhängende Folgeseiten.',
+    'Zuchtprogramm, Registrierung, DNA, Faseranalyse und Reglemente. Das digitale Herdebuch führen Mitglieder über NWKSoft.',
   heroVariant: 'dark',
   hero: {
     layout: 'editorial',
@@ -132,45 +132,36 @@ export const zuchtHub: HubDefinition = {
   sourceLabel: 'Zuchtseite nwks.ch',
   groups: [
     {
-      title: 'Herdebuch digital',
+      title: 'Themen',
+      description: 'Die öffentlichen Folgeseiten zu Zucht und Herdebuch – ohne separates Software-Thema.',
       cards: [
         {
-          to: '/zucht-herdebuch/nwksoft',
-          title: 'NWKSoft',
-          description: 'Login seit 1. April 2025. Basic kostenlos, Pro Fr. 85.–/Jahr.',
-        },
-        {
-          to: '/zucht-herdebuch/herdebuch',
-          title: 'Herdebuch',
-          description: 'An- und Ummeldung, Kostenregeln, Formulare für Nichtmitglieder.',
-        },
-      ],
-    },
-    {
-      title: 'Züchterische Tätigkeiten',
-      cards: [
-        {
-          to: '/zucht-herdebuch/zuchtprogramm',
+          to: '/herdebuch/zuchtprogramm',
           title: 'Zuchtprogramm',
           description: 'Lineare Beschreibung, Faser, DNA, Deckmeldungen, TZV.',
         },
         {
-          to: '/zucht-herdebuch/lineare-beschreibung',
-          title: 'Lineare Beschreibung',
-          description: 'Objektive Exterieurbeurteilung, Beschreiber, Termine.',
+          to: '/herdebuch/registrierung',
+          title: 'Registrierung / Abstammung',
+          description: 'An- und Ummeldung, Kostenregeln, Formulare für Nichtmitglieder.',
         },
         {
-          to: '/zucht-herdebuch/dna',
-          title: 'DNA / SNP',
+          to: '/herdebuch/dna',
+          title: 'DNA / Genetik',
           description: 'Ab 2026 nur SNP. Parentage und BLW-Anerkennung.',
         },
         {
-          to: '/zucht-herdebuch/faser',
+          to: '/herdebuch/faser',
           title: 'Faseranalyse',
           description: 'Leistungsbewertung und Diagramme lesen.',
         },
         {
-          to: '/zucht-herdebuch/reglemente',
+          to: '/herdebuch/lineare-beschreibung',
+          title: 'Lineare Beschreibung',
+          description: 'Objektive Exterieurbeurteilung, Beschreiber, Termine.',
+        },
+        {
+          to: '/herdebuch/reglemente',
           title: 'Reglemente',
           description: 'Zucht, DNA, Faser, Beschreibung – öffentliche PDFs.',
         },

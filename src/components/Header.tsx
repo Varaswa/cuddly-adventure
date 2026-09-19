@@ -1,15 +1,48 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { navLinks, NWKSOFT_LOGIN } from '../data/demo'
 import ExternalLink from './ExternalLink'
 import BrandLockup from './BrandLockup'
-import type { NavItem } from '../data/nav'
+import type { NavChild, NavItem } from '../data/nav'
+
+function hashActive(pathname: string, hash: string, to: string) {
+  const [path, childHash] = to.split('#')
+  if (!childHash) return pathname === path || pathname.startsWith(`${path}/`)
+  return pathname === path && hash === `#${childHash}`
+}
 
 function itemClass(isActive: boolean, compact = false) {
   const pad = compact ? 'px-2.5 py-1.5 text-sm' : 'px-3 py-2.5 text-base'
   return `rounded-lg font-medium transition-colors ${pad} ${
     isActive ? 'bg-sand text-anthrazit' : 'text-anthrazit/80 hover:bg-sand/60 hover:text-anthrazit'
   }`
+}
+
+function ChildLink({
+  child,
+  onClick,
+}: {
+  child: NavChild
+  onClick?: () => void
+}) {
+  const { pathname, hash } = useLocation()
+  const isActive = child.to.includes('#')
+    ? hashActive(pathname, hash, child.to)
+    : undefined
+
+  return (
+    <NavLink
+      to={child.to}
+      onClick={onClick}
+      className={({ isActive: routeActive }) =>
+        `block rounded-lg px-3 py-2 text-sm ${
+          (isActive ?? routeActive) ? 'bg-sand text-anthrazit' : 'text-anthrazit/80 hover:bg-sand/60'
+        }`
+      }
+    >
+      {child.label}
+    </NavLink>
+  )
 }
 
 function DesktopItem({ link }: { link: NavItem }) {
@@ -40,16 +73,7 @@ function DesktopItem({ link }: { link: NavItem }) {
         <ul className="min-w-[16rem] rounded-xl border border-sand bg-warmweiss p-2 shadow-lg">
           {link.children.map((child) => (
             <li key={child.to}>
-              <NavLink
-                to={child.to}
-                className={({ isActive }) =>
-                  `block rounded-lg px-3 py-2 text-sm ${
-                    isActive ? 'bg-sand text-anthrazit' : 'text-anthrazit/80 hover:bg-sand/60'
-                  }`
-                }
-              >
-                {child.label}
-              </NavLink>
+              <ChildLink child={child} />
             </li>
           ))}
         </ul>
@@ -80,7 +104,7 @@ export default function Header() {
             href={NWKSOFT_LOGIN}
             className="hidden rounded-lg border border-anthrazit/20 px-3 py-2 text-sm font-medium text-anthrazit transition hover:border-anthrazit/40 hover:bg-sand/50 sm:inline-flex"
           >
-            NWKSoft Login
+            Herdebuch-Login
           </ExternalLink>
           <Link
             to="/mein-nwks/mitgliedschaft"
@@ -111,9 +135,6 @@ export default function Header() {
 
       <nav className="hidden border-t border-sand bg-sand/40 lg:block" aria-label="Hauptnavigation">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1 px-4 py-1.5 sm:px-6 lg:px-8">
-          <NavLink to="/" end className={({ isActive }) => itemClass(isActive, true)}>
-            Startseite
-          </NavLink>
           {navLinks.map((link) => (
             <DesktopItem key={link.to} link={link} />
           ))}
@@ -123,18 +144,6 @@ export default function Header() {
       {open && (
         <div id="mobile-nav" className="border-t border-sand bg-warmweiss lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3 sm:px-6" aria-label="Mobile Navigation">
-            <NavLink
-              to="/"
-              end
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `rounded-lg px-3 py-2.5 text-base font-medium ${
-                  isActive ? 'bg-sand text-anthrazit' : 'text-anthrazit/90 hover:bg-sand/60'
-                }`
-              }
-            >
-              Startseite
-            </NavLink>
             {navLinks.map((link) => (
               <div key={link.to}>
                 <div className="flex items-center gap-1">
@@ -173,17 +182,7 @@ export default function Header() {
                   <ul className="mb-1 ml-3 mt-1 border-l border-sand pl-3">
                     {link.children.map((child) => (
                       <li key={child.to}>
-                        <NavLink
-                          to={child.to}
-                          onClick={() => setOpen(false)}
-                          className={({ isActive }) =>
-                            `block rounded-lg px-3 py-2 text-sm ${
-                              isActive ? 'bg-sand text-anthrazit' : 'text-anthrazit/75 hover:bg-sand/60'
-                            }`
-                          }
-                        >
-                          {child.label}
-                        </NavLink>
+                        <ChildLink child={child} onClick={() => setOpen(false)} />
                       </li>
                     ))}
                   </ul>
@@ -195,7 +194,7 @@ export default function Header() {
                 href={NWKSOFT_LOGIN}
                 className="rounded-lg border border-anthrazit/20 px-3 py-2.5 text-center text-sm font-medium"
               >
-                NWKSoft Login
+                Herdebuch-Login
               </ExternalLink>
               <Link
                 to="/mein-nwks/mitgliedschaft"

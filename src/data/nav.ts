@@ -10,6 +10,7 @@ export type NavItem = {
 }
 
 export const navLinks: NavItem[] = [
+  { to: '/', label: 'Start' },
   {
     to: '/haltung-gesundheit',
     label: 'Haltung & Gesundheit',
@@ -22,29 +23,26 @@ export const navLinks: NavItem[] = [
     ],
   },
   {
-    to: '/zucht-herdebuch',
-    label: 'Zucht & Herdebuch',
+    to: '/herdebuch',
+    label: 'Herdebuch',
     children: [
-      { to: '/zucht-herdebuch/nwksoft', label: 'NWKSoft' },
-      { to: '/zucht-herdebuch/herdebuch', label: 'Herdebuch' },
-      { to: '/zucht-herdebuch/lineare-beschreibung', label: 'Lineare Beschreibung' },
-      { to: '/zucht-herdebuch/dna', label: 'DNA / SNP' },
-      { to: '/zucht-herdebuch/reglemente', label: 'Reglemente' },
+      { to: '/herdebuch/zuchtprogramm', label: 'Zuchtprogramm' },
+      { to: '/herdebuch/registrierung', label: 'Registrierung / Abstammung' },
+      { to: '/herdebuch/dna', label: 'DNA / Genetik' },
+      { to: '/herdebuch/faser', label: 'Faseranalyse' },
+      { to: '/herdebuch/lineare-beschreibung', label: 'Lineare Beschreibung' },
+      { to: '/herdebuch/reglemente', label: 'Reglemente' },
     ],
   },
   { to: '/veranstaltungen', label: 'Veranstaltungen' },
-  { to: '/suche', label: 'Hofsuche' },
   {
-    to: '/downloads',
-    label: 'Downloads',
+    to: '/finden',
+    label: 'Finden',
     children: [
-      { to: '/downloads/haltung', label: 'Haltung' },
-      { to: '/downloads/zucht', label: 'Zucht' },
-      { to: '/downloads/verein', label: 'Verein' },
-      { to: '/downloads/infobriefe', label: 'Infobriefe' },
+      { to: '/finden#hoefe', label: 'Höfe' },
+      { to: '/finden#tiere', label: 'Tiere' },
     ],
   },
-  { to: '/tierverkauf', label: 'Tierverkauf' },
   {
     to: '/mein-nwks',
     label: 'Mein NWKS',
@@ -74,35 +72,8 @@ export const interesseCards = [
   {
     id: 'zuechter',
     title: 'Ich züchte',
-    description: 'Herdebuch, NWKSoft, Abstammung, DNA, Faser und Reglement.',
-    to: '/zucht-herdebuch',
+    description: 'Herdebuch, Abstammung, DNA, Faser und Reglement.',
+    to: '/herdebuch',
     accent: 'anthrazit' as const,
-  },
-]
-
-export const tileNav = [
-  {
-    title: 'Lamas & Alpakas',
-    description: 'Tiere kennenlernen',
-    icon: 'lama' as const,
-    to: '/haltung-gesundheit/neuweltkameliden',
-  },
-  {
-    title: 'Haltung & Gesundheit',
-    description: 'Praxiswissen',
-    icon: 'haltung' as const,
-    to: '/haltung-gesundheit',
-  },
-  {
-    title: 'Zucht & Herdebuch',
-    description: 'Zucht, DNA, Faser, NWKSoft',
-    icon: 'zucht' as const,
-    to: '/zucht-herdebuch',
-  },
-  {
-    title: 'NWKS & Mitgliedschaft',
-    description: 'Verein & Vorteile',
-    icon: 'verein' as const,
-    to: '/mein-nwks',
   },
 ]

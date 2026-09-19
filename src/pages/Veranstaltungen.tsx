@@ -107,7 +107,7 @@ export default function Veranstaltungen() {
         title="Weiterbildung und Vernetzung"
         description="Infotreffs, Beschreibungen und Shows gehören zum Vereinsjahr. Mitgliedschaft bringt Einladungen und NWKSoft-Anmeldung."
         primary={{ label: 'Mitglied werden', to: '/mein-nwks' }}
-        secondary={{ label: 'Hof finden', to: '/suche' }}
+        secondary={{ label: 'Hof finden', to: '/finden' }}
       />
     </div>
   )
