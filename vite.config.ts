@@ -1,3 +1,5 @@
+import { copyFileSync, mkdirSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -5,6 +7,32 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 /** Live GitHub Pages path: https://varaswa.github.io/cuddly-adventure/ */
 const PAGES_BASE = '/cuddly-adventure/'
+
+const SPA_ROUTES = [
+  'haltung-gesundheit',
+  'zucht-herdebuch',
+  'veranstaltungen',
+  'suche',
+  'downloads',
+  'tierverkauf',
+  'mein-nwks',
+]
+
+function spaPagesFallback() {
+  return {
+    name: 'spa-pages-fallback',
+    closeBundle() {
+      const dist = resolve('dist')
+      const index = resolve(dist, 'index.html')
+      copyFileSync(index, resolve(dist, '404.html'))
+      for (const route of SPA_ROUTES) {
+        const dir = resolve(dist, route)
+        mkdirSync(dir, { recursive: true })
+        copyFileSync(index, resolve(dir, 'index.html'))
+      }
+    },
+  }
+}
 
 function resolveViteBase(command: 'build' | 'serve') {
   if (process.env.VITE_BASE) return process.env.VITE_BASE
@@ -100,6 +128,7 @@ export default defineConfig(({ command }) => {
           ],
         },
       }),
+      spaPagesFallback(),
     ],
   }
 })
