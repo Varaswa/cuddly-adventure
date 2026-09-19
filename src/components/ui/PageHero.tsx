@@ -110,9 +110,14 @@ export default function PageHero({
     return (
       <section className={`border-b border-sand ${wash}`}>
         <div className="mx-auto grid max-w-7xl overflow-hidden lg:grid-cols-2 lg:items-stretch">
-          <div className={`relative min-h-[16rem] sm:min-h-[20rem] ${reverse ? 'lg:order-2' : ''}`}>
-            <Photo src={image} alt={imageAlt} objectPosition={objectPosition} />
-            <div className={`absolute inset-y-0 ${reverse ? 'left-0' : 'right-0'} hidden w-1 ${accentBar[accent]} lg:block`} />
+          <div className={`relative min-h-[16rem] overflow-hidden sm:min-h-[22rem] lg:min-h-[22rem] ${reverse ? 'lg:order-2' : ''}`}>
+            <Photo
+              src={image}
+              alt={imageAlt}
+              objectPosition={objectPosition}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className={`absolute inset-y-0 ${reverse ? 'left-0' : 'right-0'} hidden w-1.5 ${accentBar[accent]} lg:block`} />
           </div>
           <div className="flex flex-col justify-center px-4 py-12 text-anthrazit sm:px-6 sm:py-16 lg:px-12">
             {copy}

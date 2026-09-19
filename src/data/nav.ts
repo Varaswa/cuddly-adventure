@@ -1,5 +1,4 @@
 export const navLinks = [
-  { to: '/', label: 'Startseite' },
   { to: '/haltung-gesundheit', label: 'Haltung & Gesundheit' },
   { to: '/zucht-herdebuch', label: 'Zucht & Herdebuch' },
   { to: '/veranstaltungen', label: 'Veranstaltungen' },

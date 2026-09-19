@@ -24,13 +24,13 @@ export default function BrandLockup({ inverse = false, compact = false }: Props)
         height={63}
       />
       <span className={`min-w-0 leading-tight ${nameClass}`}>
-        <span className="block font-semibold tracking-tight sm:hidden">NWKS</span>
-        <span className="hidden font-semibold tracking-tight sm:block sm:text-[0.95rem] lg:text-base">
+        <span className="block text-sm font-semibold tracking-tight 2xl:hidden">NWKS</span>
+        <span className="hidden font-semibold tracking-tight 2xl:block 2xl:text-base">
           NeuweltkamelidenSchweiz
         </span>
         {!compact && (
-          <span className={`hidden text-[0.65rem] uppercase tracking-[0.18em] sm:block ${subClass}`}>
-            NWKS · Schweiz
+          <span className={`hidden text-[0.65rem] uppercase tracking-[0.18em] 2xl:block ${subClass}`}>
+            Neuweltkameliden Schweiz
           </span>
         )}
       </span>

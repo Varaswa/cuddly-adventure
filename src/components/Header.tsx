@@ -20,7 +20,7 @@ export default function Header() {
           <BrandLockup />
         </Link>
 
-        <nav className="hidden items-center gap-1 xl:flex" aria-label="Hauptnavigation">
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Hauptnavigation">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -77,6 +77,18 @@ export default function Header() {
       {open && (
         <div id="mobile-nav" className="border-t border-sand bg-warmweiss xl:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3 sm:px-6" aria-label="Mobile Navigation">
+            <NavLink
+              to="/"
+              end
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                `rounded-lg px-3 py-2.5 text-base font-medium ${
+                  isActive ? 'bg-sand text-anthrazit' : 'text-anthrazit/90 hover:bg-sand/60'
+                }`
+              }
+            >
+              Startseite
+            </NavLink>
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
