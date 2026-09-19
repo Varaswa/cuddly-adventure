@@ -9,9 +9,18 @@ lerna-debug.log*
 
 node_modules
 dist
+dist-native
 dist-ssr
 *.local
 .netlify
+
+# Native signing material (never commit)
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+*.p8
+local.properties
 
 # Editor directories and files
 .vscode/*

@@ -18,10 +18,13 @@ const SPA_ROUTES = [
   'mein-nwks',
 ]
 
+const isNativeBuild = process.env.CAPACITOR === '1'
+
 function spaPagesFallback() {
   return {
     name: 'spa-pages-fallback',
     closeBundle() {
+      if (isNativeBuild) return
       const dist = resolve('dist')
       const index = resolve(dist, 'index.html')
       copyFileSync(index, resolve(dist, '404.html'))
@@ -34,7 +37,23 @@ function spaPagesFallback() {
   }
 }
 
+/** Keep `virtual:pwa-register` resolvable when the PWA plugin is off (native). */
+function pwaRegisterStub() {
+  return {
+    name: 'pwa-register-stub',
+    resolveId(id: string) {
+      if (id === 'virtual:pwa-register') return id
+    },
+    load(id: string) {
+      if (id === 'virtual:pwa-register') {
+        return 'export function registerSW() { return () => {} }'
+      }
+    },
+  }
+}
+
 function resolveViteBase(command: 'build' | 'serve') {
+  if (isNativeBuild) return '/'
   if (process.env.VITE_BASE) return process.env.VITE_BASE
   if (process.env.VERCEL) return '/'
   if (command === 'serve' && !process.env.CI) return PAGES_BASE
@@ -45,10 +64,16 @@ export default defineConfig(({ command }) => {
   const viteBase = resolveViteBase(command)
   return {
     base: viteBase,
+    build: {
+      outDir: isNativeBuild ? 'dist-native' : 'dist',
+      emptyOutDir: true,
+    },
     plugins: [
       react(),
       tailwindcss(),
-      VitePWA({
+      isNativeBuild
+        ? pwaRegisterStub()
+        : VitePWA({
         registerType: 'autoUpdate',
         injectRegister: false,
         includeAssets: [
