@@ -1,10 +1,21 @@
 import { useMemo, useState } from 'react'
 import { downloads, downloadTags, nwkLinks } from '../data/demo'
-import ExternalLink from '../components/ExternalLink'
+import { NWKS_DOWNLOADS, NWKS_LINKS } from '../data/sources'
+import PageHero from '../components/ui/PageHero'
+import Section, { SectionHeading } from '../components/ui/Section'
+import Card from '../components/ui/Card'
+import { Badge, EmptyState, FilterChip, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
+import PageCta from '../components/ui/PageCta'
+
+const featuredIds = [23, 21, 26, 30]
 
 export default function Downloads() {
   const [query, setQuery] = useState('')
   const [tag, setTag] = useState<string | null>(null)
+
+  const featured = featuredIds
+    .map((id) => downloads.find((doc) => doc.id === id))
+    .filter((doc): doc is (typeof downloads)[number] => Boolean(doc))
 
   const list = useMemo(() => {
     return downloads.filter((doc) => {
@@ -15,71 +26,74 @@ export default function Downloads() {
     })
   }, [query, tag])
 
+  const groups = useMemo(() => {
+    const map = new Map<string, typeof nwkLinks>()
+    for (const link of nwkLinks) {
+      const bucket = map.get(link.group) ?? []
+      bucket.push(link)
+      map.set(link.group, bucket)
+    }
+    return [...map.entries()]
+  }, [])
+
   return (
     <div>
-      <section className="border-b border-sand bg-sand/40">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-anthrazit sm:text-4xl">Dokumente & Formulare</h1>
-          <p className="mt-2 text-anthrazit/70">
-            Öffentliche Dateien von nwks.ch – PDFs und Formulare werden auf der Verbandswebsite geöffnet,
-            nicht im Prototyp gehostet.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="sand"
+        eyebrow="Service"
+        title="Dokumente & Formulare"
+        lead="Öffentliche Dateien von nwks.ch – PDFs und Formulare werden auf der Verbandswebsite geöffnet, nicht im Prototyp gehostet."
+        actions={
+          <>
+            <PrimaryCta href={NWKS_DOWNLOADS}>Downloads auf nwks.ch</PrimaryCta>
+            <SecondaryCta href={NWKS_LINKS}>Linkliste</SecondaryCta>
+          </>
+        }
+      />
 
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <Section>
+        <SectionHeading
+          title="Aktuell empfohlen"
+          description="Preisliste, Statuten, Jahresprogramm und der letzte Infobrief."
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {featured.map((doc) => (
+            <Card key={doc.id} variant="sand" hover>
+              <Badge tone="salbei">Aktuell</Badge>
+              <h3 className="mt-3 font-semibold text-anthrazit">{doc.title}</h3>
+              <p className="mt-1 text-sm text-anthrazit/60">{doc.meta}</p>
+              <TextCta href={doc.url} className="mt-3">
+                Öffnen →
+              </TextCta>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="sand">
+        <SectionHeading title="Gesamtkatalog" description={`${downloads.length} öffentliche Dateien mit Suche und Tags.`} />
         <input
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Dokument suchen …"
-          className="w-full max-w-xl rounded-lg border border-sand bg-warmweiss px-4 py-2.5 outline-none ring-salbei focus:ring-2"
+          className="mt-8 w-full max-w-xl rounded-lg border border-sand bg-warmweiss px-4 py-2.5 outline-none ring-salbei focus:ring-2"
           aria-label="Dokument suchen"
         />
 
         <div className="mt-4 flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setTag(null)}
-            className={`rounded-full px-3 py-1.5 text-sm font-medium ${
-              tag === null ? 'bg-anthrazit text-warmweiss' : 'bg-sand/70 text-anthrazit'
-            }`}
-          >
-            Alle
-          </button>
+          <FilterChip label="Alle" active={tag === null} onClick={() => setTag(null)} />
           {downloadTags.map((t) => (
-            <button
-              key={t}
-              type="button"
-              onClick={() => setTag(t)}
-              className={`rounded-full px-3 py-1.5 text-sm font-medium ${
-                tag === t ? 'bg-anthrazit text-warmweiss' : 'bg-sand/70 text-anthrazit'
-              }`}
-            >
-              {t}
-            </button>
+            <FilterChip key={t} label={t} active={tag === t} onClick={() => setTag(t)} />
           ))}
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((doc) => (
-            <article
-              key={doc.id}
-              className="flex flex-col rounded-2xl border border-sand bg-warmweiss p-5 shadow-sm"
-            >
+            <Card key={doc.id}>
               <div className="flex items-start justify-between gap-2">
-                <span className="rounded bg-sand px-2 py-0.5 text-xs font-semibold text-anthrazit/70">
-                  {doc.type}
-                </span>
-                {doc.current ? (
-                  <span className="rounded-full bg-salbei/15 px-2 py-0.5 text-xs font-semibold text-salbei">
-                    Aktuell
-                  </span>
-                ) : (
-                  <span className="rounded-full bg-anthrazit/10 px-2 py-0.5 text-xs font-semibold text-anthrazit/55">
-                    Archiv
-                  </span>
-                )}
+                <Badge>{doc.type}</Badge>
+                {doc.current ? <Badge tone="salbei">Aktuell</Badge> : <Badge tone="muted">Archiv</Badge>}
               </div>
               <h2 className="mt-3 text-base font-semibold text-anthrazit">{doc.title}</h2>
               <p className="mt-1 text-sm text-anthrazit/60">{doc.meta}</p>
@@ -90,37 +104,49 @@ export default function Downloads() {
                   </span>
                 ))}
               </div>
-              <ExternalLink
-                href={doc.url}
-                className="mt-4 self-start rounded-lg bg-nwks-rot px-3 py-2 text-sm font-semibold text-white hover:bg-nwks-rot/90"
-              >
+              <PrimaryCta href={doc.url} className="mt-4 self-start px-3 py-2">
                 Öffnen
-              </ExternalLink>
-            </article>
+              </PrimaryCta>
+            </Card>
           ))}
         </div>
 
         {list.length === 0 && (
-          <p className="mt-6 text-sm text-anthrazit/60">Keine Dokumente gefunden.</p>
+          <EmptyState title="Keine Dokumente gefunden." description="Suche oder Tag zurücksetzen." />
         )}
+      </Section>
 
-        <h2 className="mt-14 text-xl font-bold text-anthrazit">Nützliche Links</h2>
-        <p className="mt-2 text-sm text-anthrazit/65">
-          Auswahl aus der öffentlichen NWKS-Linkliste sowie Behörden- und Fachstellen.
-        </p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {nwkLinks.map((link) => (
-            <article key={link.url} className="rounded-xl border border-sand bg-warmweiss p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-salbei">{link.group}</p>
-              <h3 className="mt-1 font-semibold text-anthrazit">{link.title}</h3>
-              <p className="mt-1 text-sm text-anthrazit/65">{link.description}</p>
-              <ExternalLink href={link.url} className="mt-2 inline-block text-sm font-semibold text-nwks-rot hover:underline">
-                Öffnen →
-              </ExternalLink>
-            </article>
+      <Section>
+        <SectionHeading
+          title="Nützliche Links"
+          description="Auswahl aus der öffentlichen NWKS-Linkliste sowie Behörden- und Fachstellen."
+        />
+        <div className="mt-8 space-y-8">
+          {groups.map(([group, links]) => (
+            <div key={group}>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-salbei">{group}</h3>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {links.map((link) => (
+                  <Card key={link.url}>
+                    <h4 className="font-semibold text-anthrazit">{link.title}</h4>
+                    <p className="mt-1 flex-1 text-sm text-anthrazit/65">{link.description}</p>
+                    <TextCta href={link.url} className="mt-2">
+                      Öffnen →
+                    </TextCta>
+                  </Card>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
-      </section>
+      </Section>
+
+      <PageCta
+        title="Formulare allein reichen nicht?"
+        description="Mitglieder arbeiten in NWKSoft. Beitritt, Statuten und Kontakt liegen unter Mein NWKS."
+        primary={{ label: 'Mein NWKS', to: '/mein-nwks' }}
+        secondary={{ label: 'Zucht & Herdebuch', to: '/zucht-herdebuch' }}
+      />
     </div>
   )
 }

@@ -3,7 +3,8 @@ import { Link, NavLink } from 'react-router-dom'
 import { navLinks, NWKSOFT_LOGIN } from '../data/demo'
 import ExternalLink from './ExternalLink'
 
-const logoSrc = `${import.meta.env.BASE_URL}nwks-logo.svg`
+/** Official wordmark from nwks.ch (Wix media b1af85_d2b8b61d5aac4ca89ce95fa36ddde18c). */
+const logoSrc = `${import.meta.env.BASE_URL}nwks-logo.png`
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -12,7 +13,11 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-sand/80 bg-warmweiss/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
-          <img src={logoSrc} alt="NWKS" className="h-9 w-auto" />
+          <img
+            src={logoSrc}
+            alt="NWKS – Neuweltkameliden Schweiz"
+            className="h-11 w-auto max-w-[13rem] object-contain object-left sm:h-12 sm:max-w-none"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Hauptnavigation">

@@ -25,7 +25,10 @@ export default defineConfig(({ command }) => {
         injectRegister: false,
         includeAssets: [
           'favicon.svg',
-          'nwks-logo.svg',
+          'favicon-32x32.png',
+          'nwks-logo.png',
+          'nwks-logo-inverse.png',
+          'nwks-mark.png',
           'pwa-icon.svg',
           'apple-touch-icon.png',
         ],
