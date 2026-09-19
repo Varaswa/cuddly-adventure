@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { articleByPath, downloadCategoryBySlug, hubByPath } from '../content'
 import Header from './Header'
 import Footer from './Footer'
 
 const PAGE_TITLES: Record<string, string> = {
   '/': 'NWKS – Neuweltkameliden Schweiz',
-  '/haltung-gesundheit': 'Haltung & Gesundheit · NWKS',
+  '/haltung-gesundheit': 'Haltung / Pflege · NWKS',
   '/zucht-herdebuch': 'Zucht & Herdebuch · NWKS',
   '/veranstaltungen': 'Veranstaltungen · NWKS',
   '/suche': 'Hofsuche · NWKS',
@@ -14,11 +15,29 @@ const PAGE_TITLES: Record<string, string> = {
   '/mein-nwks': 'Mein NWKS',
 }
 
+function titleForPath(pathname: string): string {
+  const exact = PAGE_TITLES[pathname]
+  if (exact) return exact
+
+  const hub = hubByPath(pathname)
+  if (hub) return `${hub.label} · NWKS`
+
+  const article = articleByPath(pathname)
+  if (article) return `${article.title} · NWKS`
+
+  if (pathname.startsWith('/downloads/')) {
+    const category = downloadCategoryBySlug(pathname.slice('/downloads/'.length))
+    if (category) return `${category.title} · NWKS`
+  }
+
+  return 'Seite nicht gefunden · NWKS'
+}
+
 export default function Layout() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    document.title = PAGE_TITLES[pathname] ?? 'Seite nicht gefunden · NWKS'
+    document.title = titleForPath(pathname)
   }, [pathname])
 
   return (
