@@ -8,6 +8,7 @@ import Suche from './pages/Suche'
 import Downloads from './pages/Downloads'
 import Tierverkauf from './pages/Tierverkauf'
 import MeinNwks from './pages/MeinNwks'
+import NichtGefunden from './pages/NichtGefunden'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="downloads" element={<Downloads />} />
         <Route path="tierverkauf" element={<Tierverkauf />} />
         <Route path="mein-nwks" element={<MeinNwks />} />
+        <Route path="*" element={<NichtGefunden />} />
       </Route>
     </Routes>
   )

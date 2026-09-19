@@ -44,3 +44,8 @@ a {
 button {
   font-family: inherit;
 }
+
+:focus-visible {
+  outline: 2px solid var(--salbei);
+  outline-offset: 2px;
+}

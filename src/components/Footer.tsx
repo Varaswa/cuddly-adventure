@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom'
-import { NWKS_HOME } from '../data/demo'
+import { NWKS_HOME, SEKRETARIAT_EMAIL, HERDEBUCH_EMAIL } from '../data/sources'
 import ExternalLink from './ExternalLink'
+
+const logoSrc = `${import.meta.env.BASE_URL}nwks-logo.svg`
 
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-sand bg-anthrazit text-warmweiss">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-3 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <p className="text-lg font-bold">NWKS</p>
+          <img src={logoSrc} alt="" className="h-8 w-auto brightness-0 invert" />
+          <p className="mt-3 text-lg font-bold">NWKS</p>
           <p className="mt-2 text-sm text-warmweiss/75">
             Neuweltkameliden Schweiz – anerkannte Zuchtorganisation für Lamas und Alpakas.
           </p>
@@ -18,18 +21,74 @@ export default function Footer() {
         <div>
           <p className="text-sm font-semibold uppercase tracking-wide text-warmweiss/60">Service</p>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><Link to="/suche" className="hover:text-white">Hof-/Fachpersonensuche</Link></li>
-            <li><Link to="/downloads" className="hover:text-white">Downloads & Formulare</Link></li>
-            <li><Link to="/tierverkauf" className="hover:text-white">Tierverkauf</Link></li>
-            <li><Link to="/veranstaltungen" className="hover:text-white">Veranstaltungen</Link></li>
+            <li>
+              <Link to="/suche" className="hover:text-white">
+                Hof-/Fachpersonensuche
+              </Link>
+            </li>
+            <li>
+              <Link to="/downloads" className="hover:text-white">
+                Downloads & Formulare
+              </Link>
+            </li>
+            <li>
+              <Link to="/tierverkauf" className="hover:text-white">
+                Tierverkauf
+              </Link>
+            </li>
+            <li>
+              <Link to="/veranstaltungen" className="hover:text-white">
+                Veranstaltungen
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
           <p className="text-sm font-semibold uppercase tracking-wide text-warmweiss/60">Verband</p>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><Link to="/mein-nwks" className="hover:text-white">Mitgliedschaft</Link></li>
-            <li><Link to="/zucht-herdebuch" className="hover:text-white">NWKSoft & Herdebuch</Link></li>
-            <li><Link to="/haltung-gesundheit" className="hover:text-white">Haltung & Gesundheit</Link></li>
+            <li>
+              <Link to="/mein-nwks" className="hover:text-white">
+                Mitgliedschaft
+              </Link>
+            </li>
+            <li>
+              <Link to="/zucht-herdebuch" className="hover:text-white">
+                NWKSoft & Herdebuch
+              </Link>
+            </li>
+            <li>
+              <Link to="/haltung-gesundheit" className="hover:text-white">
+                Haltung & Gesundheit
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="hover:text-white">
+                Startseite
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wide text-warmweiss/60">Kontakt</p>
+          <ul className="mt-3 space-y-2 text-sm text-warmweiss/80">
+            <li>
+              <ExternalLink href={`mailto:${SEKRETARIAT_EMAIL}`} className="hover:text-white">
+                {SEKRETARIAT_EMAIL}
+              </ExternalLink>
+            </li>
+            <li>
+              <ExternalLink href={`mailto:${HERDEBUCH_EMAIL}`} className="hover:text-white">
+                {HERDEBUCH_EMAIL}
+              </ExternalLink>
+            </li>
+            <li>
+              <ExternalLink
+                href="https://www.nwks.ch/_files/ugd/3817ed_79fe125a4464476898f1a4eb8f8c2130.pdf"
+                className="hover:text-white"
+              >
+                Datenschutzerklärung
+              </ExternalLink>
+            </li>
           </ul>
         </div>
       </div>
