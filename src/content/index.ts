@@ -1,7 +1,7 @@
 import { downloadCategories, downloadCategoryBySlug, downloadCategoryCards } from './downloads'
 import { gesundheitArticles } from './gesundheit'
 import { haltungArticles } from './haltung'
-import { haltungHub, zuchtHub, downloadsHub, vereinHub } from './hubs'
+import { haltungHub, haltungExtraGroups, zuchtHub, downloadsHub, vereinHub } from './hubs'
 import type { Article, HubDefinition } from './types'
 import { vereinArticles } from './verein'
 import { zuchtArticles } from './zucht'
@@ -32,6 +32,7 @@ export {
   downloadCategoryBySlug,
   downloadCategoryCards,
   downloadsHub,
+  haltungExtraGroups,
   haltungHub,
   vereinHub,
   zuchtHub,

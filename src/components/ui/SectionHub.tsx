@@ -18,13 +18,28 @@ type Props = {
     cta?: string
   }
   intro?: ReactNode
+  alertPlacement?: 'top' | 'after-hero'
   children?: ReactNode
 }
 
-export default function SectionHub({ hub, actions, alert, intro, children }: Props) {
+export default function SectionHub({
+  hub,
+  actions,
+  alert,
+  intro,
+  alertPlacement = 'after-hero',
+  children,
+}: Props) {
+  const banner = alert ? (
+    <AlertBanner title={alert.title} to={alert.to} href={alert.href} cta={alert.cta}>
+      {alert.body}
+    </AlertBanner>
+  ) : null
+
   return (
     <div>
       <Breadcrumb items={[{ label: 'Start', to: '/' }, { label: hub.label }]} />
+      {alertPlacement === 'top' && banner}
       <PageHero
         variant={hub.heroVariant}
         eyebrow={hub.eyebrow}
@@ -40,11 +55,7 @@ export default function SectionHub({ hub, actions, alert, intro, children }: Pro
           ) : undefined)
         }
       />
-      {alert && (
-        <AlertBanner title={alert.title} to={alert.to} href={alert.href} cta={alert.cta}>
-          {alert.body}
-        </AlertBanner>
-      )}
+      {alertPlacement === 'after-hero' && banner}
       {intro}
       {hub.groups.map((group, index) => (
         <Section key={group.title} tone={index % 2 === (intro ? 0 : 1) ? 'sand' : 'plain'}>

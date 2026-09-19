@@ -7,106 +7,104 @@ export const haltungHub: HubDefinition = {
   label: 'Haltung / Pflege',
   title: 'Haltung / Pflege',
   eyebrow: 'Haltung & Gesundheit',
-  lead:
-    'Hier finden Sie Informationen darüber, was Lamas und Alpakas benötigen, um sich wohlzufühlen – Haltungsbedingungen, Artenkunde und die Tierschutzverordnung, ergänzt um Gesundheitsthemen des Verbands.',
+  lead: 'Hier finden Sie Informationen darüber, was Lamas und Alpakas benötigen, um sich wohlzufühlen.',
   heroVariant: 'salbei',
   sourceHref: NWKS_HALTUNG,
   sourceLabel: 'Haltung/Pflege auf nwks.ch',
   groups: [
     {
-      title: 'Haltung / Pflege',
-      description: 'Die drei Folgeseiten der öffentlichen NWKS-Haltungsseite, plus Einstieg und Arten.',
+      title: 'Themen',
+      description: 'Die Folgeseiten der öffentlichen NWKS-Seite Haltung / Pflege.',
       cards: [
         {
           to: '/haltung-gesundheit/haltungsbedingungen',
           title: 'Haltungsbedingungen',
           description: 'Stall, Weide, Fläche, Fütterung und Pflege – Merkblatt und Praxisregeln.',
-          icon: '🌿',
         },
         {
           to: '/haltung-gesundheit/neuweltkameliden',
           title: 'Neuweltkameliden',
           description: 'Lama, Alpaka, Herkunft und Nutzung im Überblick.',
-          icon: '🦙',
         },
         {
           to: '/haltung-gesundheit/tierschutzverordnung',
           title: 'Tierschutzverordnung',
-          description: 'Art. 57/58 TSchV, Mindestflächen und Sachkundenachweis.',
-          icon: '⚖️',
-        },
-        {
-          to: '/haltung-gesundheit/neueinsteiger',
-          title: 'Tipps für Neueinsteiger',
-          description: 'Zucht oder Hobby klären, Tiere ansehen, Unterlagen mitnehmen.',
-          icon: '🧭',
-        },
-      ],
-    },
-    {
-      title: 'Gesundheit',
-      description: 'Vorsorge, aktuelle Seuchenhinweise und das TB-Programm.',
-      cards: [
-        {
-          to: '/haltung-gesundheit/gesundheit',
-          title: 'Gesundheit / Medizin',
-          description: 'Parasiten, Impfungen, Beobachtung und Fachliteratur.',
-          icon: '🩺',
-        },
-        {
-          to: '/haltung-gesundheit/blauzungenkrankheit',
-          title: 'Blauzungenkrankheit',
-          description: 'BTV 3, Impfempfehlung des BGK.',
-          icon: '⚠️',
-        },
-        {
-          to: '/haltung-gesundheit/parasiten',
-          title: 'Parasiten',
-          description: 'Kotprobenprogramm des BGK, Resistenzvermeidung.',
-          icon: '🔬',
-        },
-        {
-          to: '/haltung-gesundheit/tuberkulose',
-          title: 'TB-Überwachung',
-          description: 'Freiwilliges Programm für Export und Status.',
-          icon: '📋',
-        },
-        {
-          to: '/haltung-gesundheit/vorsorge',
-          title: 'Tägliche Vorsorge',
-          description: 'Warnzeichen, Temperatur, Neugeborene.',
-          icon: '👀',
-        },
-      ],
-    },
-    {
-      title: 'Tiere kennenlernen',
-      description: 'Vertiefung zu Art, Nutzung und TGI.',
-      cards: [
-        {
-          to: '/haltung-gesundheit/alpaka',
-          title: 'Alpaka',
-          description: 'Huacaya und Suri, Vlies und Charakter.',
-        },
-        {
-          to: '/haltung-gesundheit/lama',
-          title: 'Lama',
-          description: 'Classic, Wooly, Suri und Traglast.',
-        },
-        {
-          to: '/haltung-gesundheit/nutzung',
-          title: 'Nutzung',
-          description: 'Trekking, Wolle, Fleisch, Herdenschutz.',
-        },
-        {
-          to: '/haltung-gesundheit/tgi',
-          title: 'Tiergestützte Intervention',
-          description: 'Freizeit versus TGI, Empfehlungen des NWKS.',
+          description: 'Gesetzliche Mindestvorgaben, Flächen und Sachkundenachweis.',
         },
       ],
     },
   ],
 }
+
+export const haltungExtraGroups = [
+  {
+    title: 'Gesundheit',
+    description: 'Vorsorge, aktuelle Seuchenhinweise und das TB-Programm.',
+    cards: [
+      {
+        to: '/haltung-gesundheit/gesundheit',
+        title: 'Gesundheit / Medizin',
+        description: 'Parasiten, Impfungen, Beobachtung und Fachliteratur.',
+        icon: '🩺',
+      },
+      {
+        to: '/haltung-gesundheit/blauzungenkrankheit',
+        title: 'Blauzungenkrankheit',
+        description: 'BTV 3, Impfempfehlung des BGK.',
+        icon: '⚠️',
+      },
+      {
+        to: '/haltung-gesundheit/parasiten',
+        title: 'Parasiten',
+        description: 'Kotprobenprogramm des BGK, Resistenzvermeidung.',
+        icon: '🔬',
+      },
+      {
+        to: '/haltung-gesundheit/tuberkulose',
+        title: 'TB-Überwachung',
+        description: 'Freiwilliges Programm für Export und Status.',
+        icon: '📋',
+      },
+      {
+        to: '/haltung-gesundheit/vorsorge',
+        title: 'Tägliche Vorsorge',
+        description: 'Warnzeichen, Temperatur, Neugeborene.',
+        icon: '👀',
+      },
+    ],
+  },
+  {
+    title: 'Tiere kennenlernen',
+    description: 'Vertiefung zu Art, Nutzung und TGI.',
+    cards: [
+      {
+        to: '/haltung-gesundheit/alpaka',
+        title: 'Alpaka',
+        description: 'Huacaya und Suri, Vlies und Charakter.',
+      },
+      {
+        to: '/haltung-gesundheit/lama',
+        title: 'Lama',
+        description: 'Classic, Wooly, Suri und Traglast.',
+      },
+      {
+        to: '/haltung-gesundheit/nutzung',
+        title: 'Nutzung',
+        description: 'Trekking, Wolle, Fleisch, Herdenschutz.',
+      },
+      {
+        to: '/haltung-gesundheit/tgi',
+        title: 'Tiergestützte Intervention',
+        description: 'Freizeit versus TGI, Empfehlungen des NWKS.',
+      },
+      {
+        to: '/haltung-gesundheit/neueinsteiger',
+        title: 'Tipps für Neueinsteiger',
+        description: 'Zucht oder Hobby klären, Tiere ansehen, Unterlagen mitnehmen.',
+      },
+    ],
+  },
+]
 
 export const zuchtHub: HubDefinition = {
   path: '/zucht-herdebuch',
