@@ -22,7 +22,11 @@ export default function Startseite() {
     <div>
       <PwaInstallHint />
       <PageHero
-        variant="dark"
+        layout="cover"
+        image="heroes/start.jpg"
+        imageAlt="Alpakaherde auf einer Bergweide"
+        objectPosition="center 72%"
+        accent="salbei"
         size="lg"
         eyebrow="Neuweltkameliden Schweiz"
         title="Für gesunde Tiere. Für verantwortungsvolle Haltung. Für eine starke Gemeinschaft."

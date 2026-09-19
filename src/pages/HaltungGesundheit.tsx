@@ -21,7 +21,11 @@ export default function HaltungGesundheit() {
   return (
     <div>
       <PageHero
-        variant="salbei"
+        layout="split-reverse"
+        image="heroes/haltung.jpg"
+        imageAlt="Alpaka auf der Weide"
+        objectPosition="center 20%"
+        accent="salbei"
         eyebrow="Haltung & Gesundheit"
         title="Lamas und Alpakas richtig halten"
         lead={

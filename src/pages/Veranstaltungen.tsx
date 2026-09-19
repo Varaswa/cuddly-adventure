@@ -23,7 +23,11 @@ export default function Veranstaltungen() {
   return (
     <div>
       <PageHero
-        variant="sand"
+        layout="frame"
+        image="heroes/veranstaltungen.jpg"
+        imageAlt="Alpakas auf einer Weide"
+        objectPosition="center"
+        accent="sand"
         eyebrow="Aktivitäten & TGI"
         title="Veranstaltungen"
         lead="Termine aus dem offiziellen Tätigkeitsprogramm 2026, dem Infobrief 1/2026 und der TGI-Seite. Eigene Anlässe können an sekretariat@nwks.ch gemeldet werden."

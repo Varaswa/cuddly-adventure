@@ -38,7 +38,9 @@ export function SectionHeading({ eyebrow, title, description, action }: HeadingP
         {eyebrow && (
           <p className="text-sm font-semibold uppercase tracking-wider text-salbei">{eyebrow}</p>
         )}
-        <h2 className={`${eyebrow ? 'mt-2' : ''} text-2xl font-bold text-anthrazit sm:text-3xl`}>{title}</h2>
+        <h2 className={`${eyebrow ? 'mt-2' : ''} font-serif text-2xl font-semibold tracking-tight text-anthrazit sm:text-3xl`}>
+          {title}
+        </h2>
         {description && <div className="mt-2 max-w-2xl text-anthrazit/70">{description}</div>}
       </div>
       {action}

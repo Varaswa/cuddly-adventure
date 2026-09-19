@@ -4,7 +4,7 @@ import { TIERVERKAUF_ALPAKAS_PDF, TIERVERKAUF_LAMAS_PDF, NWKS_TIERVERKAUF } from
 import PageHero from '../components/ui/PageHero'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
-import { Badge, EmptyState, GhostOnDarkCta, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
+import { Badge, EmptyState, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
 
 type Filters = {
@@ -44,14 +44,18 @@ export default function Tierverkauf() {
   return (
     <div>
       <PageHero
-        variant="dark"
+        layout="stack"
+        image="heroes/tierverkauf.jpg"
+        imageAlt="Alpakas unterschiedlicher Farbe an der Heuraufe"
+        objectPosition="center 70%"
+        accent="sand"
         eyebrow="Verkaufslisten"
         title="Tiere finden"
         lead="Öffentliche Inserate der NWKS-Verkaufslisten. Der Verband stellt die Plattform bereit – Kaufvertrag und Verantwortung liegen beim jeweiligen Anbieter."
         actions={
           <>
             <PrimaryCta href={TIERVERKAUF_ALPAKAS_PDF}>Verkaufsliste Alpakas (PDF)</PrimaryCta>
-            <GhostOnDarkCta href={TIERVERKAUF_LAMAS_PDF}>Verkaufsliste Lamas (PDF)</GhostOnDarkCta>
+            <SecondaryCta href={TIERVERKAUF_LAMAS_PDF}>Verkaufsliste Lamas (PDF)</SecondaryCta>
           </>
         }
       />

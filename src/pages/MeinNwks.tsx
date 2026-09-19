@@ -9,7 +9,7 @@ import {
 import PageHero from '../components/ui/PageHero'
 import Section, { SectionHeading } from '../components/ui/Section'
 import Card from '../components/ui/Card'
-import { DemoNotice, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
+import { DemoNotice, GhostOnDarkCta, PrimaryCta, SecondaryCta, TextCta } from '../components/ui/primitives'
 import PageCta from '../components/ui/PageCta'
 import PwaInstallHint from '../components/PwaInstallHint'
 import ExternalLink from '../components/ExternalLink'
@@ -20,14 +20,19 @@ export default function MeinNwks() {
     <div>
       <PwaInstallHint />
       <PageHero
-        variant="salbei"
+        layout="cover"
+        image="heroes/mein-nwks.jpg"
+        imageAlt="Grosse Alpakaherde in der Landschaft"
+        objectPosition="center 55%"
+        accent="naturgruen"
+        size="lg"
         eyebrow="Mitgliederbereich"
         title="Mein NWKS"
         lead="Öffentliche Vereinsinfos, Shortcuts und aktuelle Hinweise. Der persönliche Login bleibt NWKSoft vorbehalten – hier gibt es keine erfundenen Mitgliedsdaten."
         actions={
           <>
             <PrimaryCta href={mitgliedschaft.beitrittUrl}>Beitrittserklärung (PDF)</PrimaryCta>
-            <SecondaryCta href={mitgliedschaft.nwksoftUrl}>NWKSoft Login</SecondaryCta>
+            <GhostOnDarkCta href={mitgliedschaft.nwksoftUrl}>NWKSoft Login</GhostOnDarkCta>
           </>
         }
       />

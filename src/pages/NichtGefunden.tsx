@@ -6,7 +6,11 @@ export default function NichtGefunden() {
   return (
     <div>
       <PageHero
-        variant="dark"
+        layout="cover"
+        image="heroes/nicht-gefunden.jpg"
+        imageAlt="Alpenlandschaft über einem Wolkenmeer"
+        objectPosition="center 40%"
+        accent="sand"
         eyebrow="404"
         title="Seite nicht gefunden"
         lead="Diese Adresse gehört nicht zu den öffentlichen Routen der NWKS-Demo."
