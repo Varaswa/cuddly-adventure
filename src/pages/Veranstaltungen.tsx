@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import { veranstaltungen } from '../data/demo'
+import ExternalLink from '../components/ExternalLink'
 
-const types = ['Alle', 'Tagung', 'Kurs', 'Show', 'TGI'] as const
+const types = ['Alle', 'Tagung', 'Kurs', 'Show', 'TGI', 'Messe'] as const
 
 export default function Veranstaltungen() {
   const [filter, setFilter] = useState<(typeof types)[number]>('Alle')
@@ -18,7 +19,8 @@ export default function Veranstaltungen() {
           <p className="text-sm font-semibold uppercase tracking-wide text-salbei">Aktivitäten & TGI</p>
           <h1 className="mt-2 text-3xl font-bold text-anthrazit sm:text-4xl">Veranstaltungen</h1>
           <p className="mt-3 max-w-2xl text-anthrazit/70">
-            Tagungen, Kurse, Shows und tiergestützte Intervention – Termine und Anmeldungen auf einen Blick.
+            Termine aus dem offiziellen Tätigkeitsprogramm 2026, dem Infobrief 1/2026 und der TGI-Seite.
+            Eigene Anlässe können an sekretariat@nwks.ch gemeldet werden.
           </p>
         </div>
       </section>
@@ -52,13 +54,21 @@ export default function Veranstaltungen() {
                   <span className="rounded-full bg-salbei/15 px-2.5 py-0.5 text-xs font-semibold text-salbei">
                     {event.type}
                   </span>
-                  {event.open ? (
+                  {event.isDemo ? (
+                    <span className="rounded-full bg-sand px-2.5 py-0.5 text-xs font-semibold text-anthrazit/70">
+                      Demo
+                    </span>
+                  ) : event.past ? (
+                    <span className="rounded-full bg-anthrazit/10 px-2.5 py-0.5 text-xs font-semibold text-anthrazit/60">
+                      Vergangen
+                    </span>
+                  ) : event.open ? (
                     <span className="rounded-full bg-nwks-rot/10 px-2.5 py-0.5 text-xs font-semibold text-nwks-rot">
-                      Anmeldung offen
+                      Im Programm
                     </span>
                   ) : (
                     <span className="rounded-full bg-anthrazit/10 px-2.5 py-0.5 text-xs font-semibold text-anthrazit/60">
-                      Bald
+                      Vormerken
                     </span>
                   )}
                 </div>
@@ -68,20 +78,27 @@ export default function Veranstaltungen() {
                   {event.date} · {event.time} · {event.location}
                 </p>
               </div>
-              <button
-                type="button"
-                disabled={!event.open}
-                className={`mt-4 shrink-0 rounded-lg px-4 py-2 text-sm font-semibold sm:mt-0 ${
-                  event.open
-                    ? 'bg-nwks-rot text-white hover:bg-nwks-rot/90'
-                    : 'cursor-not-allowed bg-sand text-anthrazit/40'
-                }`}
-              >
-                {event.open ? 'Details / Anmelden' : 'Vormerken'}
-              </button>
+              {event.url ? (
+                <ExternalLink
+                  href={event.url}
+                  className="mt-4 shrink-0 rounded-lg bg-nwks-rot px-4 py-2 text-center text-sm font-semibold text-white hover:bg-nwks-rot/90 sm:mt-0"
+                >
+                  Details
+                </ExternalLink>
+              ) : (
+                <span className="mt-4 shrink-0 rounded-lg bg-sand px-4 py-2 text-center text-sm font-semibold text-anthrazit/40 sm:mt-0">
+                  Kein Link
+                </span>
+              )}
             </li>
           ))}
         </ul>
+
+        {list.length === 0 && (
+          <p className="mt-6 rounded-xl bg-sand/40 p-4 text-sm text-anthrazit/70">
+            Keine Termine in dieser Kategorie.
+          </p>
+        )}
       </section>
     </div>
   )

@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
-import { tiere, tierverkaufFilter } from '../data/demo'
+import { tiere, tierverkaufFilter, tierverkaufHinweis } from '../data/demo'
+import { TIERVERKAUF_ALPAKAS_PDF, TIERVERKAUF_LAMAS_PDF } from '../data/sources'
+import ExternalLink from '../components/ExternalLink'
 
 type Filters = {
   tierart: string
@@ -41,9 +43,17 @@ export default function Tierverkauf() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold sm:text-4xl">Tiere finden</h1>
           <p className="mt-2 max-w-2xl text-warmweiss/75">
-            Inserate von Mitgliedern und Anbietern. NWKS stellt die Plattform bereit – Kaufvertrag und
-            Verantwortung liegen beim jeweiligen Verkäufer.
+            Öffentliche Inserate der NWKS-Verkaufslisten. Der Verband stellt die Plattform bereit –
+            Kaufvertrag und Verantwortung liegen beim jeweiligen Anbieter.
           </p>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm">
+            <ExternalLink href={TIERVERKAUF_ALPAKAS_PDF} className="underline decoration-sand/60 hover:text-white">
+              Verkaufsliste Alpakas (PDF)
+            </ExternalLink>
+            <ExternalLink href={TIERVERKAUF_LAMAS_PDF} className="underline decoration-sand/60 hover:text-white">
+              Verkaufsliste Lamas (PDF)
+            </ExternalLink>
+          </div>
         </div>
       </section>
 
@@ -91,7 +101,7 @@ export default function Tierverkauf() {
           </button>
         </div>
 
-        <p className="mt-6 text-sm text-anthrazit/70">{list.length} Tiere gefunden</p>
+        <p className="mt-6 text-sm text-anthrazit/70">{list.length} Inserate gefunden</p>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((tier) => (
@@ -100,7 +110,7 @@ export default function Tierverkauf() {
               className="overflow-hidden rounded-2xl border border-sand bg-warmweiss shadow-sm"
             >
               <div
-                className="flex h-36 items-end bg-gradient-to-br from-salbei/40 via-sand to-anthrazit/30 p-3"
+                className="flex h-28 items-end bg-gradient-to-br from-salbei/40 via-sand to-anthrazit/30 p-3"
                 aria-hidden
               >
                 <span className="rounded bg-warmweiss/90 px-2 py-0.5 text-xs font-semibold text-anthrazit">
@@ -108,7 +118,14 @@ export default function Tierverkauf() {
                 </span>
               </div>
               <div className="p-5">
-                <h2 className="text-lg font-semibold text-anthrazit">{tier.name}</h2>
+                <div className="flex items-start justify-between gap-2">
+                  <h2 className="text-lg font-semibold text-anthrazit">{tier.name}</h2>
+                  {tier.isDemo && (
+                    <span className="rounded-full bg-sand px-2 py-0.5 text-xs font-semibold text-anthrazit/70">
+                      Demo
+                    </span>
+                  )}
+                </div>
                 <dl className="mt-2 grid grid-cols-2 gap-x-3 gap-y-1 text-sm text-anthrazit/70">
                   <div>
                     <dt className="inline text-anthrazit/45">Geschlecht: </dt>
@@ -128,14 +145,27 @@ export default function Tierverkauf() {
                   </div>
                 </dl>
                 <p className="mt-2 text-xs text-anthrazit/55">{tier.herdebuch}</p>
+                {tier.notes && <p className="mt-2 text-sm text-anthrazit/70">{tier.notes}</p>}
                 <p className="mt-3 text-sm font-medium text-anthrazit">{tier.preis}</p>
                 <p className="mt-1 text-xs text-anthrazit/55">Anbieter: {tier.anbieter}</p>
-                <button
-                  type="button"
-                  className="mt-4 w-full rounded-lg border border-anthrazit/15 py-2 text-sm font-semibold text-anthrazit transition hover:bg-sand/50"
-                >
-                  Anfrage senden
-                </button>
+                <div className="mt-4 flex flex-col gap-2">
+                  {tier.website && (
+                    <ExternalLink
+                      href={tier.website}
+                      className="w-full rounded-lg border border-anthrazit/15 py-2 text-center text-sm font-semibold text-anthrazit transition hover:bg-sand/50"
+                    >
+                      Anbieter-Website
+                    </ExternalLink>
+                  )}
+                  {tier.url && (
+                    <ExternalLink
+                      href={tier.url}
+                      className="w-full rounded-lg bg-nwks-rot py-2 text-center text-sm font-semibold text-white hover:bg-nwks-rot/90"
+                    >
+                      Inserat in der NWKS-Liste
+                    </ExternalLink>
+                  )}
+                </div>
               </div>
             </article>
           ))}
@@ -146,6 +176,8 @@ export default function Tierverkauf() {
             Keine Tiere mit diesen Filtern. Bitte Filter anpassen.
           </p>
         )}
+
+        <p className="mt-8 text-xs leading-relaxed text-anthrazit/55">{tierverkaufHinweis}</p>
       </section>
     </div>
   )

@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { navLinks } from '../data/demo'
+import { navLinks, NWKSOFT_LOGIN } from '../data/demo'
+import ExternalLink from './ExternalLink'
+
+const logoSrc = `${import.meta.env.BASE_URL}nwks-logo.svg`
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -9,7 +12,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-sand/80 bg-warmweiss/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
-          <img src="/nwks-logo.svg" alt="NWKS" className="h-9 w-auto" />
+          <img src={logoSrc} alt="NWKS" className="h-9 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Hauptnavigation">
@@ -32,12 +35,12 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <a
-            href="#nwksoft"
+          <ExternalLink
+            href={NWKSOFT_LOGIN}
             className="rounded-lg border border-anthrazit/20 px-3 py-2 text-sm font-medium text-anthrazit transition hover:border-anthrazit/40 hover:bg-sand/50"
           >
             NWKSoft Login
-          </a>
+          </ExternalLink>
           <Link
             to="/mein-nwks"
             className="rounded-lg bg-nwks-rot px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-nwks-rot/90"
@@ -85,13 +88,12 @@ export default function Header() {
               </NavLink>
             ))}
             <div className="mt-2 flex flex-col gap-2 border-t border-sand pt-3 md:hidden">
-              <a
-                href="#nwksoft"
+              <ExternalLink
+                href={NWKSOFT_LOGIN}
                 className="rounded-lg border border-anthrazit/20 px-3 py-2.5 text-center text-sm font-medium"
-                onClick={() => setOpen(false)}
               >
                 NWKSoft Login
-              </a>
+              </ExternalLink>
               <Link
                 to="/mein-nwks"
                 className="rounded-lg bg-nwks-rot px-3 py-2.5 text-center text-sm font-semibold text-white"

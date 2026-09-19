@@ -20,7 +20,9 @@ npm install
 npm run dev -- --host 0.0.0.0 --port 5173
 ```
 
-Danach im Browser öffnen: [http://localhost:5173](http://localhost:5173)
+Danach im Browser öffnen: [http://localhost:5173/cuddly-adventure/](http://localhost:5173/cuddly-adventure/)
+
+Die App ist für GitHub Pages unter dem Basispfad `/cuddly-adventure/` gebaut.
 
 ## Production-Build
 

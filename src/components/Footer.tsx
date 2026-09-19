@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { NWKS_HOME } from '../data/demo'
+import ExternalLink from './ExternalLink'
 
 export default function Footer() {
   return (
@@ -7,8 +9,11 @@ export default function Footer() {
         <div>
           <p className="text-lg font-bold">NWKS</p>
           <p className="mt-2 text-sm text-warmweiss/75">
-            Neuweltkameliden Schweiz – Verband für Lamas und Alpakas.
+            Neuweltkameliden Schweiz – anerkannte Zuchtorganisation für Lamas und Alpakas.
           </p>
+          <ExternalLink href={NWKS_HOME} className="mt-3 inline-block text-sm text-sand hover:text-white hover:underline">
+            nwks.ch →
+          </ExternalLink>
         </div>
         <div>
           <p className="text-sm font-semibold uppercase tracking-wide text-warmweiss/60">Service</p>
@@ -30,7 +35,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-7xl px-4 py-4 text-center text-xs text-warmweiss/50 sm:px-6 lg:px-8">
-          Prototyp mit Demodaten · © 2026 NWKS
+          Prototyp mit öffentlichen Angaben von nwks.ch · keine Live-Anbindung an NWKSoft · © 2026 NWKS
         </p>
       </div>
     </footer>
