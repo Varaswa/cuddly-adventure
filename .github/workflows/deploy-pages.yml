@@ -37,6 +37,10 @@ jobs:
       - name: Prepare Pages artifacts
         run: |
           cp dist/index.html dist/404.html
+          for route in haltung-gesundheit zucht-herdebuch veranstaltungen suche downloads tierverkauf mein-nwks; do
+            mkdir -p "dist/${route}"
+            cp dist/index.html "dist/${route}/index.html"
+          done
           touch dist/.nojekyll
 
       - name: Enable GitHub Pages
