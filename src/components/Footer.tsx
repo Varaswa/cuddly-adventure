@@ -2,15 +2,18 @@ import { Link } from 'react-router-dom'
 import { NWKS_HOME, SEKRETARIAT_EMAIL, HERDEBUCH_EMAIL } from '../data/sources'
 import ExternalLink from './ExternalLink'
 
-const logoSrc = `${import.meta.env.BASE_URL}nwks-logo.svg`
+const logoSrc = `${import.meta.env.BASE_URL}nwks-logo-inverse.png`
 
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-sand bg-anthrazit text-warmweiss">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <img src={logoSrc} alt="" className="h-8 w-auto brightness-0 invert" />
-          <p className="mt-3 text-lg font-bold">NWKS</p>
+          <img
+            src={logoSrc}
+            alt="NWKS – Neuweltkameliden Schweiz"
+            className="h-10 w-auto max-w-[14rem] object-contain object-left"
+          />
           <p className="mt-2 text-sm text-warmweiss/75">
             Neuweltkameliden Schweiz – anerkannte Zuchtorganisation für Lamas und Alpakas.
           </p>
